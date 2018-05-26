@@ -9,15 +9,25 @@
 import UIKit
 
 protocol ChatsViewControllerOutputProtocol {
-    
+    //TODO: протокольное общение от контроллера к интерактору
+    func fetchAllChats()
 }
 
 class ChatsViewController: UIViewController {
     
+    var presenter: ChatsViewControllerOutputProtocol!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        ChatsConfigurer.sharedInstance.configureChatsView(viewController: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
+    func performAllChats() {
+        presenter.fetchAllChats()
+    }
 }

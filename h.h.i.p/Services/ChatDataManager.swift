@@ -9,8 +9,8 @@
 import Foundation
 
 protocol ChatsProtocol {
-   
-    func fetchAllChats() -> [Chat]
+    //TODO: протокольное общение от дата манагера к интерактору
+    func fetchAllChatsFromAPI() -> [Chat]
 
 }
 
@@ -27,7 +27,7 @@ class ChatDataManager: ChatsProtocol {
                                                     email: "email")],
                               messeges: [Messege(id: "12", text: "Hello boy!", date: Date())])]
     
-    func fetchAllChats() -> [Chat] {
+    func fetchAllChatsFromAPI() -> [Chat] {
         return chats
     }
     

@@ -30,6 +30,7 @@
 		95EF72D720B8DC970019B275 /* ChatsConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72D620B8DC970019B275 /* ChatsConfigurer.swift */; };
 		95EF72D920B966BC0019B275 /* Modalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72D820B966BC0019B275 /* Modalable.swift */; };
 		95EF72DB20B96D9A0019B275 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72DA20B96D9A0019B275 /* Consts.swift */; };
+		95EF72DF20B9731F0019B275 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72DE20B9731F0019B275 /* HttpRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		95EF72D620B8DC970019B275 /* ChatsConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsConfigurer.swift; sourceTree = "<group>"; };
 		95EF72D820B966BC0019B275 /* Modalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modalable.swift; sourceTree = "<group>"; };
 		95EF72DA20B96D9A0019B275 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		95EF72DE20B9731F0019B275 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 		95EF72C420B8A1DF0019B275 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				95EF72DC20B972EA0019B275 /* Network */,
 				95EF72D320B8B5FD0019B275 /* Protocols */,
 				95EF72C520B8A1FB0019B275 /* ChatDataManager.swift */,
 			);
@@ -201,6 +204,14 @@
 			children = (
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		95EF72DC20B972EA0019B275 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				95EF72DE20B9731F0019B275 /* HttpRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95EF72CC20B8A55B0019B275 /* User.swift in Sources */,
+				95EF72DF20B9731F0019B275 /* HttpRequest.swift in Sources */,
 				95EF72C020B8A09B0019B275 /* CurrentChatPresenter.swift in Sources */,
 				95EF72B420B89EDA0019B275 /* CurrentChatViewController.swift in Sources */,
 				95EF729720B899C90019B275 /* h_h_i_p.xcdatamodeld in Sources */,

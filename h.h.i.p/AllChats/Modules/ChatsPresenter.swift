@@ -9,9 +9,14 @@
 import Foundation
 
 protocol ChatsPresenterInputProtocol: ChatsViewControllerOutputProtocol {
-    
+    //TODO: протокольное общение от презентера к контроллеру
 }
 
-class ChatsPresenter {
+class ChatsPresenter: ChatsPresenterInputProtocol {
     
+    var interactor: ChatsInteractorInputProtocol!
+    
+    func fetchAllChats() {
+        interactor.fetchAllChatsFromDataManager()
+    }
 }

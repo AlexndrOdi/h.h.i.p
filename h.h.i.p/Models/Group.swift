@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct Group: Modaleble {
+    
+    var id: String
+    var users: [User]
+
+}

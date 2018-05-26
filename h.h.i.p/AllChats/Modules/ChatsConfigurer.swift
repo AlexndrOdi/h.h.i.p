@@ -9,5 +9,16 @@
 import Foundation
 
 class ChatsConfigurer {
+    //TODO: сборщик модулей : конфигуратор контроллера - презентер - интерактор - дата манагер
 
+    static let sharedInstance = ChatsConfigurer()
+    
+    func configureChatsView(viewController: ChatsViewController) {
+        let dataManager = ChatDataManager()
+        let interactor = ChatsInteractor()
+        let preneter = ChatsPresenter()
+        viewController.presenter = preneter
+        preneter.interactor = interactor
+        interactor.DataManager = dataManager
+    }
 }

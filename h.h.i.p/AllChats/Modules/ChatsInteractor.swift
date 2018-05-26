@@ -9,9 +9,17 @@
 import Foundation
 
 protocol ChatsInteractorInputProtocol {
-    func fetchAllChats()
+    //TODO: протокольное общение от интерактора к презентеру
+    func fetchAllChatsFromDataManager()
 }
 
 class ChatsInteractor: ChatsInteractorInputProtocol {
     
+    var DataManager: ChatsProtocol!
+    
+    func fetchAllChatsFromDataManager() {
+        var chats = DataManager.fetchAllChatsFromAPI()
+    }
+    
+    //TODO: логика по обработке чатов какая-то
 }

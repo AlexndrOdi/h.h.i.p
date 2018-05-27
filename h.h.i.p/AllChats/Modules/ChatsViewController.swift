@@ -11,12 +11,15 @@ import UIKit
 protocol ChatsViewControllerOutputProtocol: class {
     //TODO: протокольное общение от контроллера к интерактору
     func fetchAllChats()
+    func navigateToChatDetail()
 }
 
 protocol ChatsViewControllerInputProtocol: class {
     //TODO: протокольное общение от презентера к контроллеру
     func displayFetchedChats(chats: [Chat])
     func showError(errorMessage: String)
+    func showWaitingView()
+    func hideWaitingView()
 }
 
 class ChatsViewController: UIViewController, UINavigationControllerDelegate, ChatsViewControllerInputProtocol {
@@ -60,6 +63,25 @@ class ChatsViewController: UIViewController, UINavigationControllerDelegate, Cha
             }))
         present(refreshAlert, animated: true, completion: nil)
     }
+    //Activity indicator view
+    func showWaitingView() {
+//
+//        let alert = UIAlertController(title: "Waiting..", message: nil, preferredStyle: .alert)
+//        alert.view.isOpaque = true
+        
+        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.startAnimating()
+        
+//        alert.view.addSubview(loadingIndicator)
+        
+        self.navigationController?.present(self, animated: true, completion: nil)
+        
+    }
+    func hideWaitingView() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension ChatsViewController: UITableViewDataSource {
@@ -86,7 +108,7 @@ extension ChatsViewController: UITableViewDelegate {
     
     //TODO: дописать после настройки роутинга
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.presenter.navigateToChatDetail()
     }
 }
 

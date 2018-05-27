@@ -16,8 +16,10 @@ class ChatsPresenter: ChatsPresenterInputProtocol {
     
     weak var view: ChatsViewControllerInputProtocol!
     var interactor: ChatsInteractorInputProtocol!
+    var router: ChatsRouterInput!
     
     func fetchAllChats() {
+        view.showWaitingView()
         interactor.fetchAllChatsFromDataManager()
     }
     
@@ -29,4 +31,9 @@ class ChatsPresenter: ChatsPresenterInputProtocol {
     func sirviceError (error: Error) {
         self.view.showError(errorMessage: error.errorDescription)
     }
+    
+    func navigateToChatDetail() {
+        router.navigateToChatDetail()
+    }
+    
 }

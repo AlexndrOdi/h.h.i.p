@@ -17,9 +17,13 @@ class ChatsConfigurer {
         let dataManager = ChatDataManager()
         let interactor = ChatsInteractor()
         let presenter = ChatsPresenter()
+        let router = ChatsRouter()
+        
+        router.chatsViewController = viewController
         
         viewController.presenter = presenter
         
+        presenter.router = router
         presenter.view = viewController
         presenter.interactor = interactor
         

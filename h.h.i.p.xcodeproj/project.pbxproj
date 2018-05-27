@@ -34,6 +34,7 @@
 		95EF72E120BA0C730019B275 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72E020BA0C730019B275 /* ChatCell.swift */; };
 		95EF72E320BA0C8D0019B275 /* ChatLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72E220BA0C8D0019B275 /* ChatLoadingCell.swift */; };
 		95EF72E620BA1F790019B275 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72E520BA1F790019B275 /* ReuseIdentifierProtocol.swift */; };
+		95EF72E920BAA57F0019B275 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72E820BAA57F0019B275 /* Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		95EF72E020BA0C730019B275 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		95EF72E220BA0C8D0019B275 /* ChatLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLoadingCell.swift; sourceTree = "<group>"; };
 		95EF72E520BA1F790019B275 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		95EF72E820BAA57F0019B275 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		95EF728D20B899C90019B275 /* h.h.i.p */ = {
 			isa = PBXGroup;
 			children = (
+				95EF72E720BAA5690019B275 /* Animation */,
 				95EF72C420B8A1DF0019B275 /* Services */,
 				95EF72C120B8A10D0019B275 /* Models */,
 				95EF72B720B89FAD0019B275 /* AllChats */,
@@ -229,6 +232,14 @@
 				95EF72E220BA0C8D0019B275 /* ChatLoadingCell.swift */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		95EF72E720BAA5690019B275 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				95EF72E820BAA57F0019B275 /* Animation.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +353,7 @@
 				95EF72C820B8A2600019B275 /* ChatsRouter.swift in Sources */,
 				95EF72BE20B8A0840019B275 /* ChatsPresenter.swift in Sources */,
 				95EF72C320B8A1380019B275 /* Chat.swift in Sources */,
+				95EF72E920BAA57F0019B275 /* Animation.swift in Sources */,
 				95EF72D720B8DC970019B275 /* ChatsConfigurer.swift in Sources */,
 				95EF72CE20B8A5720019B275 /* Group.swift in Sources */,
 				95EF72E120BA0C730019B275 /* ChatCell.swift in Sources */,

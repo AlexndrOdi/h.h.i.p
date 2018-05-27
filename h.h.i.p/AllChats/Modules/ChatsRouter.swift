@@ -8,6 +8,15 @@
 
 import Foundation
 
-class ChatsRouter {
+protocol ChatsRouterInput: class {
+    func navigateToChatDetail()
+}
+
+class ChatsRouter: ChatsRouterInput {
     //TODO: роутинг навигации и т.д.
+    weak var chatsViewController: ChatsViewController!
+    
+    func navigateToChatDetail() {
+        chatsViewController.performSegue(withIdentifier: "ShowChat", sender: nil)
+    }
 }

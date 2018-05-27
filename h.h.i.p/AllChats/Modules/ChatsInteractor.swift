@@ -8,17 +8,23 @@
 
 import Foundation
 
-protocol ChatsInteractorInputProtocol {
+protocol ChatsInteractorInputProtocol: class {
     //TODO: протокольное общение от интерактора к презентеру
     func fetchAllChatsFromDataManager()
+}
+protocol ChatsInteractorOutputProtocol: class {
+    func providedChats(chats: [Chat])
+    func sirviceError (error: Error)
 }
 
 class ChatsInteractor: ChatsInteractorInputProtocol {
     
+    weak var presenter: ChatsInteractorOutputProtocol!
     var DataManager: ChatsProtocol!
     
     func fetchAllChatsFromDataManager() {
-        var chats = DataManager.fetchAllChatsFromAPI()
+        let chats = DataManager.fetchAllChatsFromAPI()
+        self.presenter.providedChats(chats: chats)
     }
     
     //TODO: логика по обработке чатов какая-то

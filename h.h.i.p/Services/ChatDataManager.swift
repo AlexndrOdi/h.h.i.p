@@ -31,4 +31,5 @@ class ChatDataManager: ChatsProtocol {
         return chats
     }
     
+    //TODO: сделать мемори кэш сервис
 }

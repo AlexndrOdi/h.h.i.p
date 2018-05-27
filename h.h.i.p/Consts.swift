@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Consts {
-    static let baseUrl = ""
-}
+let baseUrl = ""
+
+let errorTitle = "Problem with chats :("

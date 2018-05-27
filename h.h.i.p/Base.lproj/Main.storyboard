@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="em8-0V-ab5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" id="em8-0V-ab5" customClass="ChatCell" customModule="h_h_i_p" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="em8-0V-ab5" id="gte-Z9-TVl">
@@ -69,12 +69,42 @@
                                                 <constraint firstItem="JAr-nx-mL1" firstAttribute="top" secondItem="D9T-7q-vOx" secondAttribute="bottom" constant="4" id="xLF-Vt-tlc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" image="YES" staticText="YES"/>
+                                        </accessibility>
                                         <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="imageContactView" destination="6so-Ui-El5" id="Y5V-m9-Imy"/>
+                                            <outlet property="labelContactName" destination="D9T-7q-vOx" id="vSs-Bt-x8q"/>
+                                            <outlet property="textLastMessageField" destination="JAr-nx-mL1" id="rbf-Vg-cUy"/>
                                             <segue destination="c1m-nj-c1l" kind="showDetail" identifier="ShowChat" id="0y2-Av-fGO"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatLoadingCell" id="IHg-dI-iYt" customClass="ChatLoadingCell" customModule="h_h_i_p" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="98" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IHg-dI-iYt" id="B63-s4-v5W">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Cln-eX-v0Q">
+                                                    <rect key="frame" x="177" y="24" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Cln-eX-v0Q" firstAttribute="centerX" secondItem="B63-s4-v5W" secondAttribute="centerX" id="ULe-dr-ibr"/>
+                                                <constraint firstItem="Cln-eX-v0Q" firstAttribute="centerY" secondItem="B63-s4-v5W" secondAttribute="centerY" id="cRG-FL-Bl7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="loadingIndicator" destination="Cln-eX-v0Q" id="teQ-JT-qeh"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Cdg-tv-HLB"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="itT-1e-VJj"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,6 +117,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="RLi-j6-y7b"/>
+                    <connections>
+                        <outlet property="tableChatsView" destination="fDa-AU-sCt" id="QoH-db-fR3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

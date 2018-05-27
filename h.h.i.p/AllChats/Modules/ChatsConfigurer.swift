@@ -10,15 +10,20 @@ import Foundation
 
 class ChatsConfigurer {
     //TODO: сборщик модулей : конфигуратор контроллера - презентер - интерактор - дата манагер
-
+    //необходимо дописывать все изменения и добавления взаимодейтсвия модулей
     static let sharedInstance = ChatsConfigurer()
     
     func configureChatsView(viewController: ChatsViewController) {
         let dataManager = ChatDataManager()
         let interactor = ChatsInteractor()
-        let preneter = ChatsPresenter()
-        viewController.presenter = preneter
-        preneter.interactor = interactor
+        let presenter = ChatsPresenter()
+        
+        viewController.presenter = presenter
+        
+        presenter.view = viewController
+        presenter.interactor = interactor
+        
+        interactor.presenter = presenter
         interactor.DataManager = dataManager
     }
 }

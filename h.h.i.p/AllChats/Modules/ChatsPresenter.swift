@@ -8,15 +8,25 @@
 
 import Foundation
 
-protocol ChatsPresenterInputProtocol: ChatsViewControllerOutputProtocol {
+protocol ChatsPresenterInputProtocol: ChatsViewControllerOutputProtocol, ChatsInteractorOutputProtocol {
     //TODO: протокольное общение от презентера к контроллеру
 }
 
 class ChatsPresenter: ChatsPresenterInputProtocol {
     
+    weak var view: ChatsViewControllerInputProtocol!
     var interactor: ChatsInteractorInputProtocol!
     
     func fetchAllChats() {
         interactor.fetchAllChatsFromDataManager()
+    }
+    
+    //Return chats and interactor passes all data
+    func providedChats(chats: [Chat]) {
+        self.view.displayFetchedChats(chats: chats)
+    }
+    //Service error
+    func sirviceError (error: Error) {
+        self.view.showError(errorMessage: error.errorDescription)
     }
 }

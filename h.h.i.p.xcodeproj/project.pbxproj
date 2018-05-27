@@ -31,6 +31,9 @@
 		95EF72D920B966BC0019B275 /* Modalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72D820B966BC0019B275 /* Modalable.swift */; };
 		95EF72DB20B96D9A0019B275 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72DA20B96D9A0019B275 /* Consts.swift */; };
 		95EF72DF20B9731F0019B275 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72DE20B9731F0019B275 /* HttpRequest.swift */; };
+		95EF72E120BA0C730019B275 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72E020BA0C730019B275 /* ChatCell.swift */; };
+		95EF72E320BA0C8D0019B275 /* ChatLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72E220BA0C8D0019B275 /* ChatLoadingCell.swift */; };
+		95EF72E620BA1F790019B275 /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72E520BA1F790019B275 /* ReuseIdentifierProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		95EF72D820B966BC0019B275 /* Modalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modalable.swift; sourceTree = "<group>"; };
 		95EF72DA20B96D9A0019B275 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		95EF72DE20B9731F0019B275 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		95EF72E020BA0C730019B275 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		95EF72E220BA0C8D0019B275 /* ChatLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLoadingCell.swift; sourceTree = "<group>"; };
+		95EF72E520BA1F790019B275 /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 				95EF729D20B899CB0019B275 /* Info.plist */,
 				95EF729520B899C90019B275 /* h_h_i_p.xcdatamodeld */,
 				95EF72DA20B96D9A0019B275 /* Consts.swift */,
+				95EF72E520BA1F790019B275 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = h.h.i.p;
 			sourceTree = "<group>";
@@ -160,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				95EF72B820B89FBF0019B275 /* Modules */,
+				95EF72E420BA0CF50019B275 /* TableCells */,
 			);
 			path = AllChats;
 			sourceTree = "<group>";
@@ -168,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				95EF72B120B89E950019B275 /* ChatsViewController.swift */,
-				95EF72B920B8A0370019B275 /* ChatsInteractor.swift */,
 				95EF72BD20B8A0840019B275 /* ChatsPresenter.swift */,
+				95EF72B920B8A0370019B275 /* ChatsInteractor.swift */,
 				95EF72C720B8A2600019B275 /* ChatsRouter.swift */,
 				95EF72D620B8DC970019B275 /* ChatsConfigurer.swift */,
 			);
@@ -212,6 +220,15 @@
 				95EF72DE20B9731F0019B275 /* HttpRequest.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		95EF72E420BA0CF50019B275 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				95EF72E020BA0C730019B275 /* ChatCell.swift */,
+				95EF72E220BA0C8D0019B275 /* ChatLoadingCell.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95EF72CC20B8A55B0019B275 /* User.swift in Sources */,
+				95EF72E620BA1F790019B275 /* ReuseIdentifierProtocol.swift in Sources */,
 				95EF72DF20B9731F0019B275 /* HttpRequest.swift in Sources */,
 				95EF72C020B8A09B0019B275 /* CurrentChatPresenter.swift in Sources */,
 				95EF72B420B89EDA0019B275 /* CurrentChatViewController.swift in Sources */,
@@ -326,6 +344,7 @@
 				95EF72C320B8A1380019B275 /* Chat.swift in Sources */,
 				95EF72D720B8DC970019B275 /* ChatsConfigurer.swift in Sources */,
 				95EF72CE20B8A5720019B275 /* Group.swift in Sources */,
+				95EF72E120BA0C730019B275 /* ChatCell.swift in Sources */,
 				95EF72B220B89E960019B275 /* ChatsViewController.swift in Sources */,
 				95EF72BA20B8A0370019B275 /* ChatsInteractor.swift in Sources */,
 				95EF72BC20B8A04A0019B275 /* CurrentChatInteractor.swift in Sources */,
@@ -334,6 +353,7 @@
 				95EF72CA20B8A2710019B275 /* CurrentChatRouter.swift in Sources */,
 				95EF72C620B8A1FB0019B275 /* ChatDataManager.swift in Sources */,
 				95EF72DB20B96D9A0019B275 /* Consts.swift in Sources */,
+				95EF72E320BA0C8D0019B275 /* ChatLoadingCell.swift in Sources */,
 				95EF72D020B8A5810019B275 /* Messege.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

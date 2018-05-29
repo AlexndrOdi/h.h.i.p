@@ -16,18 +16,24 @@ protocol ChatsProtocol {
 
 class ChatDataManager: ChatsProtocol {
     
-    let chats: [Chat] = [Chat(id: "1", users: [User(id: "1",
-                                                    number: "some_number",
-                                                    firstName: "Bob",
-                                                    lastName: "Bobin",
-                                                    email: nil),
-                                               User(id: "3", number: "other number",
-                                                    firstName: nil,
-                                                    lastName: "Jonson",
-                                                    email: "email")],
-                              messeges: [Messege(id: "12", text: "Hello boy!", date: Date())])]
+    var chats: [Chat] = []
+    let chat = Chat(id: "1", users: [User(id: "1",
+                                          number: "some_number",
+                                          firstName: "Bob",
+                                          lastName: "Bobin",
+                                          email: nil),
+                                     User(id: "3", number: "other number",
+                                          firstName: nil,
+                                          lastName: "Jonson",
+                                          email: "email")],
+                    messeges: [Messege(id: "12", text: "Hello boy!", date: Date())])
     
     func fetchAllChatsFromAPI() -> [Chat] {
+
+        while chats.count < 5 {
+            chats.append(chat)
+        }
+        
         return chats
     }
     

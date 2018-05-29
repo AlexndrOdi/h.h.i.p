@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alex Odintsov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ChatsPresenterInputProtocol: ChatsViewControllerOutputProtocol, ChatsInteractorOutputProtocol {
     //TODO: протокольное общение от презентера к контроллеру
@@ -25,6 +25,7 @@ class ChatsPresenter: ChatsPresenterInputProtocol {
     
     //Return chats and interactor passes all data
     func providedChats(chats: [Chat]) {
+        view.hideWaitingView()
         self.view.displayFetchedChats(chats: chats)
     }
     //Service error
@@ -34,6 +35,11 @@ class ChatsPresenter: ChatsPresenterInputProtocol {
     
     func navigateToChatDetail() {
         router.navigateToChatDetail()
+    }
+    
+    //Pass data to next scene
+    func passDataToNextScene(segue: UIStoryboardSegue) {
+        self.router.passDataToNextScene(segue: segue)
     }
     
 }

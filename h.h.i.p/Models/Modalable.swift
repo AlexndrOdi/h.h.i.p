@@ -17,6 +17,10 @@ extension Modaleble {
         return String(describing: self)
     }
     
+    static var description: String {
+        return String(describing: self)
+    }
+    
     var toJSONString: String{
         let encoder = JSONEncoder()
         guard let jsonData = try? encoder.encode(self),

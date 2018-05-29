@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+protocol CurrentChatRouterInputProtocol: class {
+    
+}
+
+protocol CurrentChatRouterOutputProtocol: class {
+    
+}
+
+class CurrentChatRouter: CurrentChatRouterInputProtocol {
+    
+}

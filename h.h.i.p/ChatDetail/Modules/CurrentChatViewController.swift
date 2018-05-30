@@ -34,13 +34,13 @@ class CurrentChatViewController: UIViewController, CurrentChatViewControllerInpu
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     func displayCurrentChat(chat: Chat) {
         self.chat = chat
-
     }
+    
 }
 
 extension CurrentChatViewController: UITableViewDataSource {

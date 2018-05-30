@@ -8,4 +8,12 @@
 
 import UIKit
 
-
+//Анимация скрытия/показа таббара
+func animateHidingTabBar(viewController: UIViewController?) {
+    //TODO: доделать анимацию
+    viewController?.tabBarController?.tabBar.isHidden = true
+}
+func animateDisplayTabBar(viewController: UIViewController?) {
+    //TODO: доделать анимацию
+    viewController?.tabBarController?.tabBar.isHidden = false
+}

@@ -13,6 +13,13 @@
 		95B213CE20BD557700894095 /* AddChatConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213CD20BD557700894095 /* AddChatConfigurer.swift */; };
 		95B213D420BE87D500894095 /* AddChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213D320BE87D500894095 /* AddChatViewController.swift */; };
 		95B213D620BE89AF00894095 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213D520BE89AF00894095 /* ContactCell.swift */; };
+		95B213D920BEE1B600894095 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213D820BEE1B600894095 /* TabBarController.swift */; };
+		95B213DD20BEE79000894095 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213DC20BEE79000894095 /* SettingsViewController.swift */; };
+		95B213DF20BEE7B500894095 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213DE20BEE7B500894095 /* SettingsPresenter.swift */; };
+		95B213E120BEE7C600894095 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213E020BEE7C600894095 /* SettingsInteractor.swift */; };
+		95B213E320BEE7D800894095 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213E220BEE7D800894095 /* SettingsRouter.swift */; };
+		95B213E520BEE7E500894095 /* SettingsConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213E420BEE7E500894095 /* SettingsConfigurer.swift */; };
+		95B213E920BF254000894095 /* CustomCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213E820BF254000894095 /* CustomCellProtocol.swift */; };
 		95EF728F20B899C90019B275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF728E20B899C90019B275 /* AppDelegate.swift */; };
 		95EF729420B899C90019B275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EF729220B899C90019B275 /* Main.storyboard */; };
 		95EF729720B899C90019B275 /* h_h_i_p.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95EF729520B899C90019B275 /* h_h_i_p.xcdatamodeld */; };
@@ -62,6 +69,13 @@
 		95B213CD20BD557700894095 /* AddChatConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChatConfigurer.swift; sourceTree = "<group>"; };
 		95B213D320BE87D500894095 /* AddChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChatViewController.swift; sourceTree = "<group>"; };
 		95B213D520BE89AF00894095 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		95B213D820BEE1B600894095 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		95B213DC20BEE79000894095 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		95B213DE20BEE7B500894095 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		95B213E020BEE7C600894095 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		95B213E220BEE7D800894095 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		95B213E420BEE7E500894095 /* SettingsConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurer.swift; sourceTree = "<group>"; };
+		95B213E820BF254000894095 /* CustomCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellProtocol.swift; sourceTree = "<group>"; };
 		95EF728B20B899C90019B275 /* h.h.i.p.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = h.h.i.p.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EF728E20B899C90019B275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95EF729320B899C90019B275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +159,44 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		95B213D720BEE0A300894095 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				95B213D820BEE1B600894095 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		95B213DA20BEE75A00894095 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				95B213DB20BEE76F00894095 /* Modules */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		95B213DB20BEE76F00894095 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				95B213DC20BEE79000894095 /* SettingsViewController.swift */,
+				95B213DE20BEE7B500894095 /* SettingsPresenter.swift */,
+				95B213E020BEE7C600894095 /* SettingsInteractor.swift */,
+				95B213E220BEE7D800894095 /* SettingsRouter.swift */,
+				95B213E420BEE7E500894095 /* SettingsConfigurer.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		95B213E720BF250B00894095 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				95EF72DA20B96D9A0019B275 /* Consts.swift */,
+				95EF72E520BA1F790019B275 /* ReuseIdentifierProtocol.swift */,
+				95B213E820BF254000894095 /* CustomCellProtocol.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		95EF728220B899C90019B275 = {
 			isa = PBXGroup;
 			children = (
@@ -166,20 +218,21 @@
 		95EF728D20B899C90019B275 /* h.h.i.p */ = {
 			isa = PBXGroup;
 			children = (
+				95B213D720BEE0A300894095 /* TabBar */,
 				95EF72E720BAA5690019B275 /* Animation */,
 				95EF72C420B8A1DF0019B275 /* Services */,
 				95EF72C120B8A10D0019B275 /* Models */,
 				95EF72B720B89FAD0019B275 /* AllChats */,
 				95EF72B520B89F7F0019B275 /* ChatDetail */,
 				95B213C220BD545900894095 /* AddChat */,
+				95B213DA20BEE75A00894095 /* Settings */,
+				95B213E720BF250B00894095 /* Utils */,
 				95EF729220B899C90019B275 /* Main.storyboard */,
 				95EF728E20B899C90019B275 /* AppDelegate.swift */,
 				95EF729820B899CB0019B275 /* Assets.xcassets */,
 				95EF729A20B899CB0019B275 /* LaunchScreen.storyboard */,
 				95EF729D20B899CB0019B275 /* Info.plist */,
 				95EF729520B899C90019B275 /* h_h_i_p.xcdatamodeld */,
-				95EF72DA20B96D9A0019B275 /* Consts.swift */,
-				95EF72E520BA1F790019B275 /* ReuseIdentifierProtocol.swift */,
 			);
 			path = h.h.i.p;
 			sourceTree = "<group>";
@@ -400,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95EF72CC20B8A55B0019B275 /* User.swift in Sources */,
+				95B213E920BF254000894095 /* CustomCellProtocol.swift in Sources */,
 				95EF72E620BA1F790019B275 /* ReuseIdentifierProtocol.swift in Sources */,
 				95EF72DF20B9731F0019B275 /* HttpRequest.swift in Sources */,
 				95EF72EE20BB67F50019B275 /* CurrentChatConfigurer.swift in Sources */,
@@ -423,14 +477,20 @@
 				95EF72BC20B8A04A0019B275 /* CurrentChatInteractor.swift in Sources */,
 				95B213C820BD554300894095 /* AddChatPresenter.swift in Sources */,
 				95EF72D920B966BC0019B275 /* Modalable.swift in Sources */,
+				95B213D920BEE1B600894095 /* TabBarController.swift in Sources */,
 				95B213D620BE89AF00894095 /* ContactCell.swift in Sources */,
 				95EF72EC20BB5AC60019B275 /* MessageTableCell.swift in Sources */,
 				95EF728F20B899C90019B275 /* AppDelegate.swift in Sources */,
+				95B213E320BEE7D800894095 /* SettingsRouter.swift in Sources */,
 				95EF72CA20B8A2710019B275 /* CurrentChatRouter.swift in Sources */,
+				95B213DD20BEE79000894095 /* SettingsViewController.swift in Sources */,
 				95EF72C620B8A1FB0019B275 /* ChatDataManager.swift in Sources */,
+				95B213E520BEE7E500894095 /* SettingsConfigurer.swift in Sources */,
 				95EF72DB20B96D9A0019B275 /* Consts.swift in Sources */,
 				95EF72E320BA0C8D0019B275 /* ChatLoadingCell.swift in Sources */,
 				95EF72D020B8A5810019B275 /* Messege.swift in Sources */,
+				95B213DF20BEE7B500894095 /* SettingsPresenter.swift in Sources */,
+				95B213E120BEE7C600894095 /* SettingsInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,10 +34,10 @@ class AddChatViewController: UIViewController, AddChatViewControllerIntputProtoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,6 +52,11 @@ class AddChatViewController: UIViewController, AddChatViewControllerIntputProtoc
     }
     
     func showError(errorMessage: String) {
+        let alert = UIAlertController(title: permissionDenied_CB, message: messagePermisionDenied_CB, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: {(action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.navigationController?.present(alert, animated: true, completion: nil)
         print("алерт с ошибкой")
     }
 }
@@ -66,10 +71,10 @@ extension AddChatViewController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            cell.label.text = "Добавить коллегу"
+            cell.label.text = addContact
             cell.photoView.image = #imageLiteral(resourceName: "one_contact")
         case 1:
-            cell.label.text = "Добавить группу коллег"
+            cell.label.text = addGroup
             cell.photoView.image = #imageLiteral(resourceName: "group_countacts")
         default:
             let contact = contacts[indexPath.row - 2]

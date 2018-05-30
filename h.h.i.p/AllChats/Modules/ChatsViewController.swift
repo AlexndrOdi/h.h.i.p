@@ -52,7 +52,7 @@ class ChatsViewController: UIViewController, UINavigationControllerDelegate, Cha
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         performAllChats()
     }
 
@@ -134,7 +134,7 @@ extension ChatsViewController: UITableViewDataSource {
 }
 extension ChatsViewController: UITableViewDelegate {
     
-    //TODO: дописать после настройки роутинга, исправить двойной переход на экран чата
+    //TODO: дописать после настройки роутинга
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter.navigateToChatDetail()
     }

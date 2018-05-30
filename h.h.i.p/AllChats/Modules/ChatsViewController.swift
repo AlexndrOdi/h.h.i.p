@@ -13,6 +13,7 @@ protocol ChatsViewControllerOutputProtocol: class {
     func fetchAllChats()
     func navigateToChatDetail()
     func passDataToNextScene(segue: UIStoryboardSegue)
+    func navigateToAddChat()
 }
 
 protocol ChatsViewControllerInputProtocol: class {
@@ -28,6 +29,12 @@ class ChatsViewController: UIViewController, UINavigationControllerDelegate, Cha
     //MARK: Properties
     @IBOutlet weak var tableChatsView: UITableView!
     @IBOutlet weak var newChatButton: UIBarButtonItem!
+    
+    //MARK: Action button
+    @IBAction func addChat(_ sender: UIBarButtonItem) {
+        presenter.navigateToAddChat()
+    }
+    
     
     //TODO: удалить после теста
     //---------------------------

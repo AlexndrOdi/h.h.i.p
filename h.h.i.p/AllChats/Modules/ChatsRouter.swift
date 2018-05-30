@@ -11,6 +11,7 @@ import UIKit
 protocol ChatsRouterInput: class {
     func navigateToChatDetail()
     func passDataToNextScene(segue: UIStoryboardSegue)
+    func navigateToAddChat()
 }
 
 class ChatsRouter: ChatsRouterInput {
@@ -20,6 +21,10 @@ class ChatsRouter: ChatsRouterInput {
     
     func navigateToChatDetail() {
         chatsViewController.performSegue(withIdentifier: "ShowChat", sender: nil)
+    }
+    
+    func navigateToAddChat() {
+        chatsViewController.performSegue(withIdentifier: "AddChat", sender: nil)
     }
     
     //Navigate to next module
@@ -40,7 +45,12 @@ class ChatsRouter: ChatsRouterInput {
             
             //TODO: доделать передачу чата в другой модуль
             currentChatViewController.presenter.saveSelectedChat(chat: chat)
-//        case :
+        case "AddChat":
+            guard let addChatViewController = segue.destination as? AddChatViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            addChatViewController.presenter.displayAllContacts()
+            print("Clicked add chat")
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }

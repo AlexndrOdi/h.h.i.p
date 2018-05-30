@@ -13,7 +13,7 @@ protocol ChatsPresenterInputProtocol: ChatsViewControllerOutputProtocol, ChatsIn
 }
 
 class ChatsPresenter: ChatsPresenterInputProtocol {
-    
+
     weak var view: ChatsViewControllerInputProtocol!
     var interactor: ChatsInteractorInputProtocol!
     var router: ChatsRouterInput!
@@ -32,9 +32,13 @@ class ChatsPresenter: ChatsPresenterInputProtocol {
     func sirviceError (error: Error) {
         self.view.showError(errorMessage: error.errorDescription)
     }
-    
+    //MARK: Navigation to another scene
     func navigateToChatDetail() {
         router.navigateToChatDetail()
+    }
+    
+    func navigateToAddChat() {
+        router.navigateToAddChat()
     }
     
     //Pass data to next scene

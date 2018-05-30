@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -117,13 +118,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="RLi-j6-y7b">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="gZw-Wy-Ng5"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="gZw-Wy-Ng5">
+                            <connections>
+                                <action selector="addChat:" destination="BYZ-38-t0r" id="swn-Iu-5L0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="newChatButton" destination="gZw-Wy-Ng5" id="EXc-02-PKL"/>
                         <outlet property="tableChatsView" destination="fDa-AU-sCt" id="QoH-db-fR3"/>
                         <segue destination="zWd-pq-dH4" kind="show" identifier="ShowChat" id="ZDa-b9-djS"/>
-                        <segue destination="CR4-qE-vqe" kind="show" identifier="AddChat" id="KFP-rT-ptO"/>
+                        <segue destination="aZI-ra-wOa" kind="show" identifier="AddChat" id="XcC-SR-XRs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -148,20 +153,76 @@
             </objects>
             <point key="canvasLocation" x="386" y="117"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ngj-ZT-ZP2">
+        <!--Add Chat View Controller-->
+        <scene sceneID="pDG-Xd-ALd">
             <objects>
-                <viewController id="CR4-qE-vqe" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dwa-u9-eQx">
+                <viewController id="aZI-ra-wOa" customClass="AddChatViewController" customModule="h_h_i_p" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tci-Jj-sNz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Xg-Pv-hFp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactCell" rowHeight="68" id="Don-XV-EJb" userLabel="ContactCell" customClass="ContactCell" customModule="h_h_i_p" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Don-XV-EJb" id="enT-XQ-E1j">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="one_contact" translatesAutoresizingMaskIntoConstraints="NO" id="R9I-4X-aQP">
+                                                    <rect key="frame" x="8" y="4" width="60" height="59.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="rIC-BM-fyg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить коллегу" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfW-Nb-OyE">
+                                                    <rect key="frame" x="84" y="15" width="260" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZfW-Nb-OyE" secondAttribute="trailing" constant="16" id="KcM-Qi-i7e"/>
+                                                <constraint firstItem="ZfW-Nb-OyE" firstAttribute="top" secondItem="enT-XQ-E1j" secondAttribute="topMargin" constant="4" id="M6h-Ji-ubE"/>
+                                                <constraint firstItem="R9I-4X-aQP" firstAttribute="top" secondItem="enT-XQ-E1j" secondAttribute="top" constant="4" id="bql-QS-5gI"/>
+                                                <constraint firstItem="ZfW-Nb-OyE" firstAttribute="leading" secondItem="R9I-4X-aQP" secondAttribute="trailing" constant="16" id="d9l-qe-eMA"/>
+                                                <constraint firstItem="R9I-4X-aQP" firstAttribute="leading" secondItem="enT-XQ-E1j" secondAttribute="leading" constant="8" id="eQ7-Ln-zOW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZfW-Nb-OyE" secondAttribute="bottom" constant="4" id="lJF-W5-hov"/>
+                                                <constraint firstAttribute="bottom" secondItem="R9I-4X-aQP" secondAttribute="bottom" constant="4" id="oX5-6l-Xve"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="ZfW-Nb-OyE" id="EWh-zv-ac5"/>
+                                            <outlet property="photoView" destination="R9I-4X-aQP" id="imH-A3-GQO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aZI-ra-wOa" id="Kin-gI-jad"/>
+                                    <outlet property="delegate" destination="aZI-ra-wOa" id="GHj-aH-z8p"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="T92-II-QvG"/>
+                        <constraints>
+                            <constraint firstItem="4Xg-Pv-hFp" firstAttribute="leading" secondItem="6CJ-JD-Lvq" secondAttribute="leading" id="2DW-fd-Sda"/>
+                            <constraint firstItem="6CJ-JD-Lvq" firstAttribute="bottom" secondItem="4Xg-Pv-hFp" secondAttribute="bottom" id="byo-vk-kKa"/>
+                            <constraint firstItem="4Xg-Pv-hFp" firstAttribute="top" secondItem="6CJ-JD-Lvq" secondAttribute="top" id="e44-Hk-Oeh"/>
+                            <constraint firstItem="6CJ-JD-Lvq" firstAttribute="trailing" secondItem="4Xg-Pv-hFp" secondAttribute="trailing" id="tl8-AA-d8v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6CJ-JD-Lvq"/>
                     </view>
+                    <connections>
+                        <outlet property="contactsTableView" destination="4Xg-Pv-hFp" id="QB3-jZ-7Pm"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4yK-Ij-srL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRH-io-FzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="-563"/>
+            <point key="canvasLocation" x="2168.8000000000002" y="-562.66866566716647"/>
         </scene>
         <!--Dialog-->
         <scene sceneID="uCz-a2-Olq">
@@ -272,5 +333,6 @@
     </scenes>
     <resources>
         <image name="Image" width="123" height="102"/>
+        <image name="one_contact" width="800" height="800"/>
     </resources>
 </document>

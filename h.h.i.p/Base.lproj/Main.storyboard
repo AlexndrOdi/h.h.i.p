@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -237,7 +236,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IoW-Hl-fED">
-                                <rect key="frame" x="0.0" y="64" width="375" height="523"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cLu-eY-tlr">
                                     <size key="itemSize" width="375" height="50"/>
@@ -246,7 +245,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" reuseIdentifier="MessageViewCell" id="4Tx-of-CAQ" customClass="MessageViewCell" customModule="h_h_i_p" customModuleProvider="target">
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" reuseIdentifier="MessageViewCell" id="4Tx-of-CAQ" customClass="MessageViewCell" customModule="h_h_i_p" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -258,7 +257,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Ss-W9-bcO">
+                                                <textView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Ss-W9-bcO">
                                                     <rect key="frame" x="69" y="0.0" width="213" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -292,63 +291,43 @@
                                     <outlet property="delegate" destination="zWd-pq-dH4" id="cxH-hi-q6L"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SCg-Vf-IAc">
-                                <rect key="frame" x="4" y="587" width="367" height="76"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jy-Ee-6gZ">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gd-Oe-otv">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="76"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="tEM-eL-cFf"/>
-                                        </constraints>
-                                        <state key="normal" title="attach"/>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iiz-QC-aPf">
-                                        <rect key="frame" x="68" y="0.0" width="231" height="76"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите сообщение ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Ul-gJQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLH-rg-i3q">
-                                        <rect key="frame" x="307" y="0.0" width="60" height="76"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="65R-gI-8HY"/>
-                                        </constraints>
-                                        <state key="normal" title="send"/>
-                                    </button>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="iiz-QC-aPf" secondAttribute="bottom" id="AS2-Am-zac"/>
-                                    <constraint firstItem="5Gd-Oe-otv" firstAttribute="top" secondItem="SCg-Vf-IAc" secondAttribute="top" id="BpD-wY-d7v"/>
-                                    <constraint firstItem="iiz-QC-aPf" firstAttribute="leading" secondItem="5Gd-Oe-otv" secondAttribute="trailing" constant="8" id="QG2-Lu-7N6"/>
-                                    <constraint firstAttribute="bottom" secondItem="fLH-rg-i3q" secondAttribute="bottom" id="SCo-EU-mFC"/>
-                                    <constraint firstAttribute="bottom" secondItem="5Gd-Oe-otv" secondAttribute="bottom" id="Ydx-Ra-uYY"/>
-                                    <constraint firstItem="fLH-rg-i3q" firstAttribute="top" secondItem="SCg-Vf-IAc" secondAttribute="top" id="fna-KF-DUy"/>
-                                    <constraint firstItem="5Gd-Oe-otv" firstAttribute="leading" secondItem="SCg-Vf-IAc" secondAttribute="leading" id="fw4-jc-9JM"/>
-                                    <constraint firstAttribute="trailing" secondItem="fLH-rg-i3q" secondAttribute="trailing" id="gD6-Mb-PpO"/>
-                                    <constraint firstItem="fLH-rg-i3q" firstAttribute="leading" secondItem="iiz-QC-aPf" secondAttribute="trailing" constant="8" id="jPO-bn-x1F"/>
-                                    <constraint firstAttribute="height" constant="76" id="jwG-Vz-zYt"/>
-                                    <constraint firstItem="iiz-QC-aPf" firstAttribute="top" secondItem="SCg-Vf-IAc" secondAttribute="top" id="pMX-C5-hOY"/>
+                                    <constraint firstAttribute="height" constant="50" id="4Wh-m5-Wvm"/>
+                                    <constraint firstAttribute="trailing" secondItem="4gW-Ul-gJQ" secondAttribute="trailing" id="GUI-ZQ-lJq"/>
+                                    <constraint firstItem="4gW-Ul-gJQ" firstAttribute="leading" secondItem="9jy-Ee-6gZ" secondAttribute="leading" id="Je3-UD-ncu"/>
+                                    <constraint firstItem="4gW-Ul-gJQ" firstAttribute="top" secondItem="9jy-Ee-6gZ" secondAttribute="top" id="bSS-pL-ztf"/>
+                                    <constraint firstAttribute="bottom" secondItem="4gW-Ul-gJQ" secondAttribute="bottom" id="zBF-J8-1jF"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Dlg-Ot-JVx" firstAttribute="bottom" secondItem="SCg-Vf-IAc" secondAttribute="bottom" constant="4" id="02E-sq-juT"/>
-                            <constraint firstItem="IoW-Hl-fED" firstAttribute="leading" secondItem="Dlg-Ot-JVx" secondAttribute="leading" id="hTm-qf-ywQ"/>
-                            <constraint firstItem="IoW-Hl-fED" firstAttribute="trailing" secondItem="Dlg-Ot-JVx" secondAttribute="trailing" id="iNd-0b-4x5"/>
-                            <constraint firstItem="IoW-Hl-fED" firstAttribute="top" secondItem="Dlg-Ot-JVx" secondAttribute="top" id="jY2-DW-Lpi"/>
-                            <constraint firstItem="SCg-Vf-IAc" firstAttribute="leading" secondItem="Dlg-Ot-JVx" secondAttribute="leading" constant="4" id="omh-c7-sov"/>
-                            <constraint firstItem="SCg-Vf-IAc" firstAttribute="top" secondItem="IoW-Hl-fED" secondAttribute="bottom" id="tIb-ma-nWd"/>
-                            <constraint firstItem="Dlg-Ot-JVx" firstAttribute="trailing" secondItem="SCg-Vf-IAc" secondAttribute="trailing" constant="4" id="wrv-q4-YBZ"/>
+                            <constraint firstItem="9jy-Ee-6gZ" firstAttribute="bottom" secondItem="Dlg-Ot-JVx" secondAttribute="bottom" id="20y-c0-kEZ"/>
+                            <constraint firstItem="IoW-Hl-fED" firstAttribute="leading" secondItem="Dlg-Ot-JVx" secondAttribute="leading" id="6u6-gb-806"/>
+                            <constraint firstItem="9jy-Ee-6gZ" firstAttribute="top" secondItem="IoW-Hl-fED" secondAttribute="bottom" id="KhF-53-UDY"/>
+                            <constraint firstItem="9jy-Ee-6gZ" firstAttribute="leading" secondItem="Dlg-Ot-JVx" secondAttribute="leading" id="MQ0-mg-P4y"/>
+                            <constraint firstItem="IoW-Hl-fED" firstAttribute="trailing" secondItem="Dlg-Ot-JVx" secondAttribute="trailing" id="TuC-zd-HyW"/>
+                            <constraint firstItem="IoW-Hl-fED" firstAttribute="top" secondItem="Dlg-Ot-JVx" secondAttribute="top" id="cI6-ZD-ZVL"/>
+                            <constraint firstItem="Dlg-Ot-JVx" firstAttribute="trailing" secondItem="9jy-Ee-6gZ" secondAttribute="trailing" id="kIL-3I-5cH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dlg-Ot-JVx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dialog" id="Seb-oe-EEa"/>
                     <connections>
-                        <outlet property="attachButton" destination="5Gd-Oe-otv" id="ght-z3-9Yj"/>
-                        <outlet property="inputMessageTextField" destination="iiz-QC-aPf" id="XJh-9a-hs9"/>
+                        <outlet property="inputConteinerView" destination="9jy-Ee-6gZ" id="uUo-BB-NLb"/>
+                        <outlet property="inputTextField" destination="4gW-Ul-gJQ" id="5JG-P8-HJw"/>
                         <outlet property="messagesCollectionView" destination="IoW-Hl-fED" id="vah-zg-Mgf"/>
-                        <outlet property="sendButton" destination="fLH-rg-i3q" id="xkF-Qd-tTz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brw-r7-4tY" userLabel="First Responder" sceneMemberID="firstResponder"/>

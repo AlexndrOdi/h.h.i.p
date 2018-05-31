@@ -202,6 +202,13 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		95B213EE20C02BC900894095 /* ServiceModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceModels;
+			sourceTree = "<group>";
+		};
 		95EF728220B899C90019B275 = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +316,7 @@
 		95EF72C420B8A1DF0019B275 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				95B213EE20C02BC900894095 /* ServiceModels */,
 				95EF72DC20B972EA0019B275 /* Network */,
 				95EF72D320B8B5FD0019B275 /* Protocols */,
 				95EF72C520B8A1FB0019B275 /* ChatDataManager.swift */,

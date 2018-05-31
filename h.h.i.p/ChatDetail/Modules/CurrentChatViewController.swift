@@ -20,10 +20,10 @@ class CurrentChatViewController: UIViewController, CurrentChatViewControllerInpu
 
     //MARK: Properties
     @IBOutlet weak var messagesCollectionView: UICollectionView!
-    @IBOutlet weak var inputMessageTextField: UITextField!
-    @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var attachButton: UIButton!
+    @IBOutlet weak var inputConteinerView: UIView!
+    @IBOutlet weak var inputTextField: UITextField!
     
+    var bottomConstraint: NSLayoutConstraint?
     var chat: Chat?
     
     var presenter: CurrentChatViewControllerOutputProtocol!
@@ -35,6 +35,23 @@ class CurrentChatViewController: UIViewController, CurrentChatViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        bottomConstraint = NSLayoutConstraint(item: inputConteinerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        
+        view.addConstraint(bottomConstraint!)
+    }
+    
+    @objc func handleKeyBoardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let isKeyBoardShowing = notification.name == NSNotification.Name.UIKeyboardWillShow
+            
+            let keyBoardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
+            bottomConstraint?.constant = isKeyBoardShowing ? -keyBoardFrame.height : 0
+            view.updateConstraints()
+            print(keyBoardFrame)
+        }
     }
     
     func displayCurrentChat(chat: Chat) {
@@ -61,10 +78,6 @@ extension CurrentChatViewController: UICollectionViewDataSource {
         //            fatalError("Not found message for current chat. Chat: \(String(describing: chat?.description)), message: \(String(describing: chat?.messeges[indexPath.row].description))")
         //        }
         
-        //TODO: исправить потом, как будет нечего делать
-//        cell.backgroundColor = UIColor.lightGray
-//        cell.message.backgroundColor = UIColor.clear
-        
         //TODO: сделать выборку для сообщений от пользователя и для сообщений от контакта..разделить цветом и разнести по сторонам
         cell.message.text = chat?.messeges[indexPath.row].text
         
@@ -74,15 +87,24 @@ extension CurrentChatViewController: UICollectionViewDataSource {
             
             let size = CGSize(width: 250, height: 1000)
             let options = NSStringDrawingOptions.usesLineFragmentOrigin
-//            usesFontLeading.union(.usesLineFragmentOrigin)
             
             let estimatedFrame = NSString(string: message).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)], context: nil)
             if estimatedFrame.height >= 40.0 {
                 height = estimatedFrame.height
             }
             //TODO: нифигово так режется текст, нужно поправить (поправил, но нужно последить)
-            cell.message.frame = CGRect(x: 40 + 4, y: 0, width: width, height: height - 2)
-            cell.textBubbleView.frame = CGRect(x: 40, y: 0, width: width + 4, height: height)
+            if chat?.messeges[indexPath.row].id == "12" {
+                cell.message.frame = CGRect(x: 40 + 4, y: 0, width: width, height: height - 2)
+                cell.textBubbleView.frame = CGRect(x: 40, y: 0, width: width + 4, height: height)
+                cell.textBubbleView.backgroundColor = UIColor.yellow//UIColor(white: 0.95, alpha: 1)
+                cell.message.textColor = UIColor.black
+
+            } else {
+                cell.message.frame = CGRect(x: view.frame.width - estimatedFrame.width - 16 - 8, y: 0, width: width, height: height - 2)
+                cell.textBubbleView.frame = CGRect(x: view.frame.width - estimatedFrame.width - 16 - 8 - 4, y: 0, width: width + 4, height: height)
+                cell.textBubbleView.backgroundColor = UIColor.purple
+                cell.message.textColor = UIColor.white
+            }
         }
         
         return cell
@@ -98,7 +120,6 @@ extension CurrentChatViewController: UICollectionViewDelegateFlowLayout {
             
             let size = CGSize(width: 250, height: 1000)
             let options = NSStringDrawingOptions.usesLineFragmentOrigin
-//            .usesFontLeading.union(.usesLineFragmentOrigin)
             
             let estimatedFrame = NSString(string: message).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18.0)], context: nil)
             if estimatedFrame.height >= 40.0 {
@@ -115,4 +136,9 @@ extension CurrentChatViewController: UICollectionViewDelegateFlowLayout {
 }
 extension CurrentChatViewController: UICollectionViewDelegate {
     //TODO: подумать, что здесь можно замутить
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        inputTextField.endEditing(true)
+        inputTextField.resignFirstResponder()
+        print("selected cell")
+    }
 }

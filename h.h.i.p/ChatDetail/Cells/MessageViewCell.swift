@@ -18,7 +18,6 @@ class MessageViewCell: UICollectionViewCell {
         message.font = UIFont.systemFont(ofSize: 18)
         message.backgroundColor = UIColor.clear
         
-        textBubbleView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         textBubbleView.layer.cornerRadius = 15
         textBubbleView.layer.masksToBounds = true
         

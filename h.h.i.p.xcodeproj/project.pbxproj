@@ -20,6 +20,8 @@
 		95B213E320BEE7D800894095 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213E220BEE7D800894095 /* SettingsRouter.swift */; };
 		95B213E520BEE7E500894095 /* SettingsConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213E420BEE7E500894095 /* SettingsConfigurer.swift */; };
 		95B213E920BF254000894095 /* CustomCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213E820BF254000894095 /* CustomCellProtocol.swift */; };
+		95B213EB20BF344400894095 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213EA20BF344400894095 /* MessageViewCell.swift */; };
+		95B213ED20BF4ECC00894095 /* BaseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213EC20BF4ECC00894095 /* BaseViewCell.swift */; };
 		95EF728F20B899C90019B275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF728E20B899C90019B275 /* AppDelegate.swift */; };
 		95EF729420B899C90019B275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EF729220B899C90019B275 /* Main.storyboard */; };
 		95EF729720B899C90019B275 /* h_h_i_p.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95EF729520B899C90019B275 /* h_h_i_p.xcdatamodeld */; };
@@ -76,6 +78,8 @@
 		95B213E220BEE7D800894095 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		95B213E420BEE7E500894095 /* SettingsConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurer.swift; sourceTree = "<group>"; };
 		95B213E820BF254000894095 /* CustomCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellProtocol.swift; sourceTree = "<group>"; };
+		95B213EA20BF344400894095 /* MessageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
+		95B213EC20BF4ECC00894095 /* BaseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewCell.swift; sourceTree = "<group>"; };
 		95EF728B20B899C90019B275 /* h.h.i.p.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = h.h.i.p.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EF728E20B899C90019B275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95EF729320B899C90019B275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				95EF72DA20B96D9A0019B275 /* Consts.swift */,
 				95EF72E520BA1F790019B275 /* ReuseIdentifierProtocol.swift */,
 				95B213E820BF254000894095 /* CustomCellProtocol.swift */,
+				95B213EC20BF4ECC00894095 /* BaseViewCell.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				95EF72EB20BB5AC60019B275 /* MessageTableCell.swift */,
+				95B213EA20BF344400894095 /* MessageViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -484,12 +490,14 @@
 				95B213E320BEE7D800894095 /* SettingsRouter.swift in Sources */,
 				95EF72CA20B8A2710019B275 /* CurrentChatRouter.swift in Sources */,
 				95B213DD20BEE79000894095 /* SettingsViewController.swift in Sources */,
+				95B213EB20BF344400894095 /* MessageViewCell.swift in Sources */,
 				95EF72C620B8A1FB0019B275 /* ChatDataManager.swift in Sources */,
 				95B213E520BEE7E500894095 /* SettingsConfigurer.swift in Sources */,
 				95EF72DB20B96D9A0019B275 /* Consts.swift in Sources */,
 				95EF72E320BA0C8D0019B275 /* ChatLoadingCell.swift in Sources */,
 				95EF72D020B8A5810019B275 /* Messege.swift in Sources */,
 				95B213DF20BEE7B500894095 /* SettingsPresenter.swift in Sources */,
+				95B213ED20BF4ECC00894095 /* BaseViewCell.swift in Sources */,
 				95B213E120BEE7C600894095 /* SettingsInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

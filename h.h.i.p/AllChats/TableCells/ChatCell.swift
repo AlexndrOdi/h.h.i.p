@@ -20,6 +20,13 @@ class ChatCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         imageContactView.backgroundColor = UIColor.blue
+
+        labelContactName.textAlignment = .left
+        labelContactName.textColor = UIColor.black
+        
+        textLastMessageField.isUserInteractionEnabled = false
+        textLastMessageField.borderStyle = .none
+        textLastMessageField.textColor = UIColor.lightGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

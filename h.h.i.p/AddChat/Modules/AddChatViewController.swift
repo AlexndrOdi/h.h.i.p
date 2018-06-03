@@ -63,7 +63,7 @@ class AddChatViewController: UIViewController, AddChatViewControllerIntputProtoc
 extension AddChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count + 2
+        return contacts.count + 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,14 +76,27 @@ extension AddChatViewController: UITableViewDataSource {
         case 1:
             cell.label.text = addGroup
             cell.photoView.image = #imageLiteral(resourceName: "group_countacts")
+        case 2:
+            cell.label.text = contactBook
+            cell.backgroundColor = grayColorOfCellBackraound
+            cell.photoView.image = nil
         default:
-            let contact = contacts[indexPath.row - 2]
+            let contact = contacts[indexPath.row - 3]
+            var fullName: String? = ""
             
-            let label = contact.firstName ?? ""
-            
-            cell.label.text = contact.lastName ?? "" + label
+            if let first = contact.firstName {
+                fullName?.append(first + " ")
+            }
+            if let middle = contact.middleName {
+                fullName?.append(middle + " ")
+            }
+            if let last = contact.lastName {
+                fullName?.append(last)
+            }
+            cell.label.text = fullName
+    
             //TODO: доделать для аватарки контакта
-//            cell.photoView.image = contact.image
+            cell.photoView.image = #imageLiteral(resourceName: "empty_contact")
         }
         return cell
     }
@@ -93,6 +106,6 @@ extension AddChatViewController: UITableViewDataSource {
 extension AddChatViewController: UITableViewDelegate {
     //TODO: дописать после роутинга на другой экран и т.д.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

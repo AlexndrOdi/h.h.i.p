@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol SettingsRouterInputProtocol: class {
+    
+}
+
+class SettingsRouter: SettingsRouterInputProtocol {
+    
+}

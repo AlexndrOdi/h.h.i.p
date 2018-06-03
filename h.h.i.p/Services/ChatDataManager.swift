@@ -22,10 +22,13 @@ class ChatDataManager: ChatsProtocol {
     let chat = Chat(id: "1", users: [User(id: "1",
                                           number: "some_number",
                                           firstName: "Bob",
+                                          middleName: "Biby",
                                           lastName: "Bobin",
                                           email: nil),
-                                     User(id: "3", number: "other number",
+                                     User(id: "3",
+                                          number: "other number",
                                           firstName: nil,
+                                          middleName: "",
                                           lastName: "Jonson",
                                           email: "email")],
                     messeges: [Messege(id: "12", text: "Hello boy!", date: Date())])
@@ -46,6 +49,7 @@ class ChatDataManager: ChatsProtocol {
         do {
             let keys = [
                 CNContactGivenNameKey,
+                CNContactMiddleNameKey,
                 CNContactFamilyNameKey,
                 CNContactPhoneNumbersKey,
                 CNContactEmailAddressesKey
@@ -54,6 +58,7 @@ class ChatDataManager: ChatsProtocol {
             try CNContactStore().enumerateContacts(with: request, usingBlock: {(contact, stopingPointer) in
                 let firstName = contact.givenName
                 let lastName = contact.familyName
+                let middleName = contact.middleName
                 guard let number = contact.phoneNumbers.first?.value.stringValue else {
                     print("пустой номер телефона у \(firstName)")
                     return
@@ -63,6 +68,7 @@ class ChatDataManager: ChatsProtocol {
                 contactsResult.append(User(id: "111",
                                            number: number,
                                            firstName: firstName,
+                                           middleName: middleName,
                                            lastName: lastName,
                                            email: email))
             })

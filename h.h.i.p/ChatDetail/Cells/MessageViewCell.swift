@@ -12,11 +12,14 @@ class MessageViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var textBubbleView: UIView!
-    @IBOutlet weak var message: UITextView!
+    @IBOutlet weak var message: UILabel!
+    
     
     override func awakeFromNib() {
         message.font = UIFont.systemFont(ofSize: 18)
         message.backgroundColor = UIColor.clear
+        message.lineBreakMode = .byWordWrapping
+        message.numberOfLines = 0
         
         textBubbleView.layer.cornerRadius = 15
         textBubbleView.layer.masksToBounds = true

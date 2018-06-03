@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+protocol SettingsInteractorInputProtocol: class {
+    
+}
+
+protocol SettingsInteractorOutputProtocol: class {
+    
+}
+
+class SettingsInteractor: SettingsInteractorInputProtocol {
+    
+    var presenter: SettingsInteractorOutputProtocol!
+}

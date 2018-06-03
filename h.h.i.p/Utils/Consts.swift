@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alex Odintsov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 let baseUrl = ""
 
@@ -18,3 +18,6 @@ let actionTitle = "Понятно"
 
 let addContact = "Добавить коллегу"
 let addGroup = "Добавить группу коллег"
+let contactBook = "Контактная книга"
+
+let grayColorOfCellBackraound = UIColor(red: 208/255, green: 210/255, blue: 212/255, alpha: 1)

@@ -137,6 +137,7 @@ extension ChatsViewController: UITableViewDelegate {
     //TODO: дописать после настройки роутинга
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter.navigateToChatDetail()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

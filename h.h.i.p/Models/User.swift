@@ -13,17 +13,19 @@ struct User: Modaleble {
     var id: String
     var number: String
     var firstName: String?
+    var middleName: String?
     var lastName: String?
     var email: String?
     
     func defaultModel() -> User {
-        return User(id: "1", number: "77777777777", firstName: "Bob", lastName: "Bobiev", email: nil)
+        return User(id: "1", number: "77777777777", firstName: "Bob", middleName: "Boby", lastName: "Bobiev", email: nil)
     }
     
     static func == (lhs: User, rhs: User) -> Bool {
         return (lhs.id == rhs.id) &&
             (lhs.number == rhs.number) &&
             (lhs.firstName == rhs.firstName) &&
+            (lhs.middleName == rhs.middleName) &&
             (lhs.lastName == rhs.lastName) &&
             (lhs.email == rhs.email)
     }

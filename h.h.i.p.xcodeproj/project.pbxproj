@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2237A450A8769684ED784AA9 /* Pods_h_h_i_p.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D418269AD1C179DB2EC7D7BD /* Pods_h_h_i_p.framework */; };
 		95B213C820BD554300894095 /* AddChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213C720BD554300894095 /* AddChatPresenter.swift */; };
 		95B213CA20BD555600894095 /* AddChatInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213C920BD555600894095 /* AddChatInteractor.swift */; };
 		95B213CC20BD556700894095 /* AddChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213CB20BD556700894095 /* AddChatRouter.swift */; };
@@ -22,6 +23,15 @@
 		95B213E920BF254000894095 /* CustomCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213E820BF254000894095 /* CustomCellProtocol.swift */; };
 		95B213EB20BF344400894095 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213EA20BF344400894095 /* MessageViewCell.swift */; };
 		95B213ED20BF4ECC00894095 /* BaseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213EC20BF4ECC00894095 /* BaseViewCell.swift */; };
+		95B213F120C040E300894095 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213F020C040E300894095 /* MessageService.swift */; };
+		95B213F420C0787C00894095 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213F320C0787C00894095 /* NetworkService.swift */; };
+		95B213F720C1483F00894095 /* HttpRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213F620C1483F00894095 /* HttpRequestProtocol.swift */; };
+		95B213F920C14AF800894095 /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213F820C14AF800894095 /* AlamofireRequest.swift */; };
+		95B213FC20C191E700894095 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213FB20C191E700894095 /* AlamofireManager.swift */; };
+		95B213FE20C1926000894095 /* HttpManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B213FD20C1926000894095 /* HttpManagerProtocol.swift */; };
+		95B2140120C2914A00894095 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B2140020C2914A00894095 /* SocketService.swift */; };
+		95B2140420C3F1AA00894095 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B2140320C3F1AA00894095 /* ProfileCell.swift */; };
+		95B2140820C3F4E600894095 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B2140720C3F4E600894095 /* SettingsCell.swift */; };
 		95EF728F20B899C90019B275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF728E20B899C90019B275 /* AppDelegate.swift */; };
 		95EF729420B899C90019B275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EF729220B899C90019B275 /* Main.storyboard */; };
 		95EF729720B899C90019B275 /* h_h_i_p.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95EF729520B899C90019B275 /* h_h_i_p.xcdatamodeld */; };
@@ -52,6 +62,7 @@
 		95EF72E920BAA57F0019B275 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72E820BAA57F0019B275 /* Animation.swift */; };
 		95EF72EC20BB5AC60019B275 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72EB20BB5AC60019B275 /* MessageTableCell.swift */; };
 		95EF72EE20BB67F50019B275 /* CurrentChatConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF72ED20BB67F50019B275 /* CurrentChatConfigurer.swift */; };
+		F8A9F17578971C2E708C97F3 /* Pods_h_h_i_pTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7FEAF50DF471848D960278C /* Pods_h_h_i_pTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D70E70D83643AAAA1F5591C /* Pods-h.h.i.pTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-h.h.i.pTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-h.h.i.pTests/Pods-h.h.i.pTests.release.xcconfig"; sourceTree = "<group>"; };
+		36B6169CF67D5790B805376B /* Pods-h.h.i.p.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-h.h.i.p.debug.xcconfig"; path = "Pods/Target Support Files/Pods-h.h.i.p/Pods-h.h.i.p.debug.xcconfig"; sourceTree = "<group>"; };
 		95B213C720BD554300894095 /* AddChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChatPresenter.swift; sourceTree = "<group>"; };
 		95B213C920BD555600894095 /* AddChatInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChatInteractor.swift; sourceTree = "<group>"; };
 		95B213CB20BD556700894095 /* AddChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChatRouter.swift; sourceTree = "<group>"; };
@@ -80,6 +93,15 @@
 		95B213E820BF254000894095 /* CustomCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellProtocol.swift; sourceTree = "<group>"; };
 		95B213EA20BF344400894095 /* MessageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
 		95B213EC20BF4ECC00894095 /* BaseViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewCell.swift; sourceTree = "<group>"; };
+		95B213F020C040E300894095 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		95B213F320C0787C00894095 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		95B213F620C1483F00894095 /* HttpRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestProtocol.swift; sourceTree = "<group>"; };
+		95B213F820C14AF800894095 /* AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
+		95B213FB20C191E700894095 /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		95B213FD20C1926000894095 /* HttpManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManagerProtocol.swift; sourceTree = "<group>"; };
+		95B2140020C2914A00894095 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
+		95B2140320C3F1AA00894095 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		95B2140720C3F4E600894095 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		95EF728B20B899C90019B275 /* h.h.i.p.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = h.h.i.p.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EF728E20B899C90019B275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95EF729320B899C90019B275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +136,10 @@
 		95EF72E820BAA57F0019B275 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		95EF72EB20BB5AC60019B275 /* MessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		95EF72ED20BB67F50019B275 /* CurrentChatConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentChatConfigurer.swift; sourceTree = "<group>"; };
+		D418269AD1C179DB2EC7D7BD /* Pods_h_h_i_p.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_h_h_i_p.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6AA50ABA94E794B5179E54 /* Pods-h.h.i.p.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-h.h.i.p.release.xcconfig"; path = "Pods/Target Support Files/Pods-h.h.i.p/Pods-h.h.i.p.release.xcconfig"; sourceTree = "<group>"; };
+		E6AC3BB842755F9D5F24D279 /* Pods-h.h.i.pTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-h.h.i.pTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-h.h.i.pTests/Pods-h.h.i.pTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7FEAF50DF471848D960278C /* Pods_h_h_i_pTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_h_h_i_pTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2237A450A8769684ED784AA9 /* Pods_h_h_i_p.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A9F17578971C2E708C97F3 /* Pods_h_h_i_pTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +202,7 @@
 		95B213DA20BEE75A00894095 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				95B2140220C3F18D00894095 /* Cells */,
 				95B213DB20BEE76F00894095 /* Modules */,
 			);
 			path = Settings;
@@ -209,12 +238,57 @@
 			path = ServiceModels;
 			sourceTree = "<group>";
 		};
+		95B213EF20C040BA00894095 /* MessageService */ = {
+			isa = PBXGroup;
+			children = (
+				95B213F020C040E300894095 /* MessageService.swift */,
+			);
+			path = MessageService;
+			sourceTree = "<group>";
+		};
+		95B213F520C1482900894095 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				95B213F620C1483F00894095 /* HttpRequestProtocol.swift */,
+				95B213FD20C1926000894095 /* HttpManagerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		95B213FA20C18BB900894095 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				95B213F820C14AF800894095 /* AlamofireRequest.swift */,
+				95B213FB20C191E700894095 /* AlamofireManager.swift */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		95B213FF20C2913400894095 /* SocketService */ = {
+			isa = PBXGroup;
+			children = (
+				95B2140020C2914A00894095 /* SocketService.swift */,
+			);
+			path = SocketService;
+			sourceTree = "<group>";
+		};
+		95B2140220C3F18D00894095 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				95B2140320C3F1AA00894095 /* ProfileCell.swift */,
+				95B2140720C3F4E600894095 /* SettingsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		95EF728220B899C90019B275 = {
 			isa = PBXGroup;
 			children = (
 				95EF728D20B899C90019B275 /* h.h.i.p */,
 				95EF72A520B899CB0019B275 /* h.h.i.pTests */,
 				95EF728C20B899C90019B275 /* Products */,
+				9BFA79CC59CAF1903EDBE226 /* Pods */,
+				B8EC482008D5989806A15DFD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -316,6 +390,8 @@
 		95EF72C420B8A1DF0019B275 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				95B213FF20C2913400894095 /* SocketService */,
+				95B213EF20C040BA00894095 /* MessageService */,
 				95B213EE20C02BC900894095 /* ServiceModels */,
 				95EF72DC20B972EA0019B275 /* Network */,
 				95EF72D320B8B5FD0019B275 /* Protocols */,
@@ -334,7 +410,10 @@
 		95EF72DC20B972EA0019B275 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				95B213FA20C18BB900894095 /* Alamofire */,
+				95B213F520C1482900894095 /* Protocols */,
 				95EF72DE20B9731F0019B275 /* HttpRequest.swift */,
+				95B213F320C0787C00894095 /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -365,6 +444,26 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9BFA79CC59CAF1903EDBE226 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36B6169CF67D5790B805376B /* Pods-h.h.i.p.debug.xcconfig */,
+				DC6AA50ABA94E794B5179E54 /* Pods-h.h.i.p.release.xcconfig */,
+				E6AC3BB842755F9D5F24D279 /* Pods-h.h.i.pTests.debug.xcconfig */,
+				0D70E70D83643AAAA1F5591C /* Pods-h.h.i.pTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B8EC482008D5989806A15DFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D418269AD1C179DB2EC7D7BD /* Pods_h_h_i_p.framework */,
+				F7FEAF50DF471848D960278C /* Pods_h_h_i_pTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,9 +471,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95EF72AB20B899CC0019B275 /* Build configuration list for PBXNativeTarget "h.h.i.p" */;
 			buildPhases = (
+				C75CFDD39368E6AAE2650D74 /* [CP] Check Pods Manifest.lock */,
 				95EF728720B899C90019B275 /* Sources */,
 				95EF728820B899C90019B275 /* Frameworks */,
 				95EF728920B899C90019B275 /* Resources */,
+				AF632CFC80A21A1552DB935B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -389,6 +490,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95EF72AE20B899CC0019B275 /* Build configuration list for PBXNativeTarget "h.h.i.pTests" */;
 			buildPhases = (
+				AAD6F84F89CFA1CD1632C4AC /* [CP] Check Pods Manifest.lock */,
 				95EF729E20B899CB0019B275 /* Sources */,
 				95EF729F20B899CB0019B275 /* Frameworks */,
 				95EF72A020B899CB0019B275 /* Resources */,
@@ -461,6 +563,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AAD6F84F89CFA1CD1632C4AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-h.h.i.pTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF632CFC80A21A1552DB935B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-h.h.i.p/Pods-h.h.i.p-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-h.h.i.p/Pods-h.h.i.p-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C75CFDD39368E6AAE2650D74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-h.h.i.p-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		95EF728720B899C90019B275 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -470,13 +633,17 @@
 				95B213E920BF254000894095 /* CustomCellProtocol.swift in Sources */,
 				95EF72E620BA1F790019B275 /* ReuseIdentifierProtocol.swift in Sources */,
 				95EF72DF20B9731F0019B275 /* HttpRequest.swift in Sources */,
+				95B213F420C0787C00894095 /* NetworkService.swift in Sources */,
 				95EF72EE20BB67F50019B275 /* CurrentChatConfigurer.swift in Sources */,
 				95EF72C020B8A09B0019B275 /* CurrentChatPresenter.swift in Sources */,
 				95EF72B420B89EDA0019B275 /* CurrentChatViewController.swift in Sources */,
+				95B2140120C2914A00894095 /* SocketService.swift in Sources */,
+				95B213F120C040E300894095 /* MessageService.swift in Sources */,
 				95B213CC20BD556700894095 /* AddChatRouter.swift in Sources */,
 				95EF729720B899C90019B275 /* h_h_i_p.xcdatamodeld in Sources */,
 				95EF72D220B8ADAB0019B275 /* Errors.swift in Sources */,
 				95EF72C820B8A2600019B275 /* ChatsRouter.swift in Sources */,
+				95B2140820C3F4E600894095 /* SettingsCell.swift in Sources */,
 				95EF72BE20B8A0840019B275 /* ChatsPresenter.swift in Sources */,
 				95EF72C320B8A1380019B275 /* Chat.swift in Sources */,
 				95B213CE20BD557700894095 /* AddChatConfigurer.swift in Sources */,
@@ -484,13 +651,16 @@
 				95EF72D720B8DC970019B275 /* ChatsConfigurer.swift in Sources */,
 				95EF72CE20B8A5720019B275 /* Group.swift in Sources */,
 				95EF72E120BA0C730019B275 /* ChatCell.swift in Sources */,
+				95B2140420C3F1AA00894095 /* ProfileCell.swift in Sources */,
 				95B213CA20BD555600894095 /* AddChatInteractor.swift in Sources */,
 				95B213D420BE87D500894095 /* AddChatViewController.swift in Sources */,
+				95B213FC20C191E700894095 /* AlamofireManager.swift in Sources */,
 				95EF72B220B89E960019B275 /* ChatsViewController.swift in Sources */,
 				95EF72BA20B8A0370019B275 /* ChatsInteractor.swift in Sources */,
 				95EF72BC20B8A04A0019B275 /* CurrentChatInteractor.swift in Sources */,
 				95B213C820BD554300894095 /* AddChatPresenter.swift in Sources */,
 				95EF72D920B966BC0019B275 /* Modalable.swift in Sources */,
+				95B213F720C1483F00894095 /* HttpRequestProtocol.swift in Sources */,
 				95B213D920BEE1B600894095 /* TabBarController.swift in Sources */,
 				95B213D620BE89AF00894095 /* ContactCell.swift in Sources */,
 				95EF72EC20BB5AC60019B275 /* MessageTableCell.swift in Sources */,
@@ -502,11 +672,13 @@
 				95EF72C620B8A1FB0019B275 /* ChatDataManager.swift in Sources */,
 				95B213E520BEE7E500894095 /* SettingsConfigurer.swift in Sources */,
 				95EF72DB20B96D9A0019B275 /* Consts.swift in Sources */,
+				95B213FE20C1926000894095 /* HttpManagerProtocol.swift in Sources */,
 				95EF72E320BA0C8D0019B275 /* ChatLoadingCell.swift in Sources */,
 				95EF72D020B8A5810019B275 /* Messege.swift in Sources */,
 				95B213DF20BEE7B500894095 /* SettingsPresenter.swift in Sources */,
 				95B213ED20BF4ECC00894095 /* BaseViewCell.swift in Sources */,
 				95B213E120BEE7C600894095 /* SettingsInteractor.swift in Sources */,
+				95B213F920C14AF800894095 /* AlamofireRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +836,7 @@
 		};
 		95EF72AC20B899CC0019B275 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36B6169CF67D5790B805376B /* Pods-h.h.i.p.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -683,6 +856,7 @@
 		};
 		95EF72AD20B899CC0019B275 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC6AA50ABA94E794B5179E54 /* Pods-h.h.i.p.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -702,6 +876,7 @@
 		};
 		95EF72AF20B899CC0019B275 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6AC3BB842755F9D5F24D279 /* Pods-h.h.i.pTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -723,6 +898,7 @@
 		};
 		95EF72B020B899CC0019B275 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D70E70D83643AAAA1F5591C /* Pods-h.h.i.pTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

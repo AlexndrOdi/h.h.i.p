@@ -18,15 +18,18 @@ struct Chat: Modaleble {
         return Chat(id: "1", users: [User(id: "0",
                                           number: "phone number",
                                           firstName: "Bob",
+                                          middleName: "Boby",
                                           lastName: "Bobiev",
                                           email: "some_email"),
                                      User(id: "2",
                                           number: "other number",
                                           firstName: "Jon",
+                                          middleName: "",
                                           lastName: "Jonson",
                                           email: nil)], messeges: [Messege(id: "2",
                                                                                     text: "Hay!",
                                                                                     date: Date())])
+        //массив месейджов поболее только надо, штук 7 хотя бы :)
     }
     
     static func == (lhs: Chat, rhs: Chat) -> Bool {

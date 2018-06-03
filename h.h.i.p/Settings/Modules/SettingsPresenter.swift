@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+protocol SettingsPresenterInputProtocol: SettingsViewControllerOutputProtocol, SettingsInteractorOutputProtocol {
+    
+}
+
+class SettingsPresenter: SettingsPresenterInputProtocol {
+    
+    weak var view: SettingsViewControllerInputProtocol!
+    var interactor: SettingsInteractorInputProtocol!
+    var router: SettingsRouterInputProtocol!
+    
+}

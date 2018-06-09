@@ -53,6 +53,9 @@ class ChatsViewController: UIViewController, UINavigationControllerDelegate, Cha
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = editButtonItem
+        navigationItem.title = navigationTitleChats
+    
         performAllChats()
     }
 
@@ -116,14 +119,17 @@ extension ChatsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //TODO: добавить лоадинг селл, если чатов в кэше нет больше
         if indexPath.row < chats.count {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.identifier, for: indexPath) as! ChatCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.identifier, for: indexPath) as! ChatCell
         
-        //TODO: после добавления кэша сделать рефаторинг и реорганизовать
-        let chat = self.chats[indexPath.row]
-//        cell.imageContactView.image = chat.image
-        cell.labelContactName.text = chat.users.first?.firstName
-        cell.textLastMessageField.text = chat.messeges.last?.text
-        return cell
+            //TODO: после добавления кэша сделать рефаторинг и реорганизовать
+            let chat = self.chats[indexPath.row]
+            //TODO: доделать для пустой фотки юзера
+            if let imageAdd = chat.users.first?.image {
+                cell.imageContactView.image = UIImage(named: imageAdd)
+            }
+            cell.labelContactName.text = chat.users.first?.firstName
+            cell.textLastMessageField.text = chat.messeges.last?.text
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ChatLoadingCell.identifier, for: indexPath) as! ChatLoadingCell
             currentCountChats += 1
@@ -138,6 +144,26 @@ extension ChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.presenter.navigateToChatDetail()
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableChatsView.setEditing(editing, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //TODO: перенести логику на интерактора через презентер
+            chats.remove(at: indexPath.row)
+            //TODO: добавить сохранение действия в бд
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            
+        }
     }
 }
 

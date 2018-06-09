@@ -9,14 +9,28 @@
 import Foundation
 
 protocol SettingsInteractorInputProtocol: class {
-    
+    func fetchAllSettnigs()
+    func fetchProfileInfo()
 }
 
 protocol SettingsInteractorOutputProtocol: class {
-    
+    func provideAllSettings(settings: [Setting])
+    func provideProfileInfo(profile: Profile)
 }
 
 class SettingsInteractor: SettingsInteractorInputProtocol {
-    
+
     var presenter: SettingsInteractorOutputProtocol!
+    var DataManager: ChatDataManager!
+
+    func fetchAllSettnigs() {
+        let settings = DataManager.fetchAllSettingsFromCash()
+        presenter?.provideAllSettings(settings: settings)
+    }
+    
+    func fetchProfileInfo() {
+        let profile = DataManager.fetchProfileInfoFromCash()
+        presenter.provideProfileInfo(profile: profile)
+    }
+    
 }

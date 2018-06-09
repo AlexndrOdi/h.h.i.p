@@ -10,6 +10,7 @@ import UIKit
 
 protocol CurrentChatViewControllerOutputProtocol: class {
     func saveSelectedChat(chat: Chat)
+    func sendMessage(message: Messege)
 }
 
 protocol CurrentChatViewControllerInputProtocol: class {
@@ -32,7 +33,6 @@ class CurrentChatViewController: UIViewController, CurrentChatViewControllerInpu
     
     override func awakeFromNib() {
         CurrentChatConfigurer.sharedInstance.configureCurrentChatView(viewController: self)
-        
     }
     
     
@@ -42,8 +42,8 @@ class CurrentChatViewController: UIViewController, CurrentChatViewControllerInpu
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        bottomConstraint = NSLayoutConstraint(item: inputConteinerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
         sendButton.layer.cornerRadius = 20
+        bottomConstraint = NSLayoutConstraint(item: inputConteinerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
         view.addConstraint(bottomConstraint!)
 
         scrollsCollectionViewToBottom(animated: false)
@@ -76,12 +76,15 @@ class CurrentChatViewController: UIViewController, CurrentChatViewControllerInpu
         guard let chat = chat else {
             fatalError("Chat not found: \(String(describing: self.chat))")
         }
-        
+
         let item = chat.messeges.count - 1
         let indexPath = IndexPath(item: item, section: 0)
+
+        //TODO: сделать в обратную сторону получения колбека
+//        presenter.sendMessage(message: messege)
         
         self.messagesCollectionView.insertItems(at: [indexPath])
-        self.messagesCollectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        scrollsCollectionViewToBottom(animated: true)
     }
     
     
@@ -101,31 +104,31 @@ class CurrentChatViewController: UIViewController, CurrentChatViewControllerInpu
 extension CurrentChatViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return chat?.messeges.count ?? 0
+        return chat?.messeges.count ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageViewCell.identifier, for: indexPath) as! MessageViewCell
+        guard var cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageViewCell.identifier, for: indexPath) as? MessageViewCell else {
+            fatalError("The dequeued cell is not an instance of MessageViewCell")
+        }
         
-        cell.message.text = chat?.messeges[indexPath.row].text
+        guard let chat = chat else {
+            cell.message.text = "Сообщений еще не было"
+            return cell //возвращать буду какой-то дефолтный селл
+        }
+        if let imageAddr = chat.users.first?.image {
+            cell.photo.image = UIImage(named: imageAddr)
+        }
+        cell.message.text = chat.messeges[indexPath.row].text
         
-        if let message = chat?.messeges[indexPath.row].text {
-
-            let rect = estimatedFrame(for: message)
-            //TODO: нифигово так режется текст, нужно поправить (поправил, но нужно последить)
-            if chat?.messeges[indexPath.row].id == "12" {
-                cell.message.frame = CGRect(x: 40 + 8, y: 0, width: rect.width, height: rect.height)
-                cell.textBubbleView.frame = CGRect(x: 40, y: 0, width: rect.width + 8 + 8, height: rect.height + 4)
-                cell.textBubbleView.backgroundColor = UIColor.yellow
-                cell.message.textColor = UIColor.black
-                cell.photo.isHidden = false
-            } else {
-                cell.message.frame = CGRect(x: view.frame.width - rect.width - 8 - 8, y: 0, width: rect.width, height: rect.height)
-                cell.textBubbleView.frame = CGRect(x: view.frame.width - rect.width - 8 - 16, y: 0, width: rect.width + 8, height: rect.height + 4)
-                cell.textBubbleView.backgroundColor = UIColor.purple
-                cell.message.textColor = UIColor.white
-                cell.photo.isHidden = true
-            }
+        let message = chat.messeges[indexPath.row].text
+        let rect = estimatedFrame(for: message)
+        
+        //TODO: сделать определение текущего пользователя для выборки
+        if chat.messeges[indexPath.row].id == "12" {
+            usersCell(cell: &cell, rect: rect)
+        } else {
+            friendsCell(cell: &cell, rect: rect)
         }
         
         return cell
@@ -156,10 +159,10 @@ extension CurrentChatViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: Private helper methods
+//MARK: Private helpers methods
 extension CurrentChatViewController {
     
-    private func estimatedFrame(for text: String) ->CGRect {
+    private func estimatedFrame(for text: String) -> CGRect {
         var height: CGFloat = 40.0
         var width: CGFloat = 20.0
         
@@ -176,10 +179,25 @@ extension CurrentChatViewController {
         return CGRect(x: estimatedFrame.minX, y: estimatedFrame.minY, width: width, height: height)
     }
     
-    func scrollsCollectionViewToBottom(animated: Bool) {
+    private func scrollsCollectionViewToBottom(animated: Bool) {
         let indexPath = IndexPath(row: messagesCollectionView.numberOfItems(inSection: 0) - 1, section: 0)
         self.messagesCollectionView.scrollToItem(at: indexPath, at: .bottom, animated: animated)
     }
     
+    private func usersCell(cell: inout MessageViewCell, rect: CGRect) {
+        cell.message.frame = CGRect(x: 40 + 8, y: 0, width: rect.width, height: rect.height)
+        cell.textBubbleView.frame = CGRect(x: 40, y: 0, width: rect.width + 8 + 8, height: rect.height + 4)
+        cell.textBubbleView.backgroundColor = UIColor.yellow
+        cell.message.textColor = UIColor.black
+        cell.photo.isHidden = false
+    }
+    
+    private func friendsCell(cell: inout MessageViewCell, rect: CGRect) {
+        cell.message.frame = CGRect(x: view.frame.width - rect.width - 8 - 8, y: 0, width: rect.width, height: rect.height)
+        cell.textBubbleView.frame = CGRect(x: view.frame.width - rect.width - 8 - 16, y: 0, width: rect.width + 8, height: rect.height + 4)
+        cell.textBubbleView.backgroundColor = UIColor.purple
+        cell.message.textColor = UIColor.white
+        cell.photo.isHidden = true
+    }
 }
 

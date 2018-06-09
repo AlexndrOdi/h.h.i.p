@@ -14,15 +14,24 @@ protocol CurrentChatInteractorOutputProtocol: class {
 
 protocol CurrentChatInteractorInputProtocol: class {
     func initChat(chat: Chat)
+    func sendMessage(message: Messege)
 }
 
 class CurrentChatInteractor: CurrentChatInteractorInputProtocol {
     
     weak var presenter: CurrentChatInteractorOutputProtocol!
+    var DataManager: ChatDataManager!
+    var SocketService: SocketServiceInputProtocol!
+    
     var chat: Chat?
     
     func initChat(chat: Chat) {
         self.chat = chat
         presenter.providedCurrentChat(chat: chat)
     }
+    
+    func sendMessage(message: Messege) {
+        SocketService.send(message: message, from: "user")
+    }
+    
 }

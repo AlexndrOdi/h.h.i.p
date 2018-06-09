@@ -13,9 +13,34 @@ protocol SettingsPresenterInputProtocol: SettingsViewControllerOutputProtocol, S
 }
 
 class SettingsPresenter: SettingsPresenterInputProtocol {
-    
+
     weak var view: SettingsViewControllerInputProtocol!
     var interactor: SettingsInteractorInputProtocol!
     var router: SettingsRouterInputProtocol!
+ 
+    func fetchAllSettings() {
+        interactor.fetchAllSettnigs()
+    }
+    
+    func fetchProfileInfo() {
+        interactor.fetchProfileInfo()
+    }
+    
+    func provideAllSettings(settings: [Setting]) {
+        view.displayAllSettings(settings: settings)
+    }
+    
+    func provideProfileInfo(profile: Profile) {
+        view.displayProfileInfo(profile: profile)
+    }
+    
+    //Navigation
+    func navigateToSetting() {
+        router.navigateToSetting()
+    }
+    
+    func navigateToProfile() {
+        router.navigateToProfile()
+    }
     
 }

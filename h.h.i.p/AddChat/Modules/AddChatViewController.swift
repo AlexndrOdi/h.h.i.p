@@ -15,6 +15,8 @@ protocol AddChatViewControllerIntputProtocol: class {
 
 protocol AddChatViewControllerOutputProtocol: class {
     func displayAllContacts()
+    func navigateToNewContact()
+    func navigateToCreateGroup()
 }
 
 class AddChatViewController: UIViewController, AddChatViewControllerIntputProtocol {
@@ -67,20 +69,19 @@ extension AddChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = contactsTableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as! ContactCell
         
         switch indexPath.row {
         case 0:
-            cell.label.text = addContact
-            cell.photoView.image = #imageLiteral(resourceName: "one_contact")
+            let cell = contactsTableView.dequeueReusableCell(withIdentifier: NewContactCell.identifier, for: indexPath) as! NewContactCell
+            return cell
         case 1:
-            cell.label.text = addGroup
-            cell.photoView.image = #imageLiteral(resourceName: "group_countacts")
+            let cell = contactsTableView.dequeueReusableCell(withIdentifier: GroupContactCell.identifier, for: indexPath) as! GroupContactCell
+            return cell
         case 2:
-            cell.label.text = contactBook
-            cell.backgroundColor = grayColorOfCellBackraound
-            cell.photoView.image = nil
+            let cell = contactsTableView.dequeueReusableCell(withIdentifier: LabelContactBookCell.identifier, for: indexPath) as! LabelContactBookCell
+            return cell
         default:
+            let cell = contactsTableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as! ContactCell
             let contact = contacts[indexPath.row - 3]
             var fullName: String? = ""
             
@@ -97,8 +98,9 @@ extension AddChatViewController: UITableViewDataSource {
     
             //TODO: доделать для аватарки контакта
             cell.photoView.image = #imageLiteral(resourceName: "empty_contact")
+            
+            return cell
         }
-        return cell
     }
     
     
@@ -106,6 +108,19 @@ extension AddChatViewController: UITableViewDataSource {
 extension AddChatViewController: UITableViewDelegate {
     //TODO: дописать после роутинга на другой экран и т.д.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            print("0")
+        case 1:
+            print("1")
+        case 2:
+            print("2")
+        default:
+            print("default")
+        }
+        
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -16,9 +16,10 @@ struct User: Modaleble {
     var middleName: String?
     var lastName: String?
     var email: String?
+    var image: String?
     
     func defaultModel() -> User {
-        return User(id: "1", number: "77777777777", firstName: "Bob", middleName: "Boby", lastName: "Bobiev", email: nil)
+        return User(id: "1", number: "77777777777", firstName: "Bob", middleName: "Boby", lastName: "Bobiev", email: nil, image: "")
     }
     
     static func == (lhs: User, rhs: User) -> Bool {

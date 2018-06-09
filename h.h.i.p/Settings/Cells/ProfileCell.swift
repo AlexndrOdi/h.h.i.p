@@ -18,9 +18,8 @@ class ProfileCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        profilePhoto.backgroundColor = UIColor.green
-        profileName.text = "Profile Name"
-        profileNumber.text = "7 999 999 77 77"
+        profilePhoto.image = #imageLiteral(resourceName: "empty_contact")
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

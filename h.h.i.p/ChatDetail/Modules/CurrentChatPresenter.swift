@@ -12,7 +12,7 @@ protocol CurrentChatPresenterInputProtocol: CurrentChatInteractorOutputProtocol,
 }
 
 class CurrentChatPresenter: CurrentChatPresenterInputProtocol {
-    
+
     weak var view: CurrentChatViewControllerInputProtocol!
     var interactor: CurrentChatInteractorInputProtocol!
     var router: CurrentChatRouterInputProtocol!
@@ -26,4 +26,7 @@ class CurrentChatPresenter: CurrentChatPresenterInputProtocol {
         self.view.displayCurrentChat(chat: chat)
     }
     
+    func sendMessage(message: Messege) {
+        interactor.sendMessage(message: message)
+    }
 }

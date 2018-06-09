@@ -19,7 +19,6 @@ class ChatCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        imageContactView.backgroundColor = UIColor.blue
 
         labelContactName.textAlignment = .left
         labelContactName.textColor = UIColor.black

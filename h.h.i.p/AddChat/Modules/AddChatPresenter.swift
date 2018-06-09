@@ -30,5 +30,15 @@ class AddChatPresenter: AddChatPresenterInputProtocol {
         view.showError(errorMessage: error.errorDescription)
     }
     
+    //MARK: Navigation
+    func navigateToNewContact() {
+        router.navigateToNewContact()
+    }
+    
+    func navigateToCreateGroup() {
+        router.navigateToCreateGroup()
+    }
+    
+
     
 }

@@ -13,28 +13,32 @@ protocol ChatsProtocol {
     //TODO: протокольное общение от дата манагера к интерактору
     func fetchAllChatsFromAPI() -> [Chat]
     func fetchAllContactsFromContactBook() -> [User]?
+    func fetchAllSettingsFromCash() -> [Setting]
+    func fetchProfileInfoFromCash() -> Profile
     
 }
 
 class ChatDataManager: ChatsProtocol {
-    
+
     var chats: [Chat] = []
     let chat = Chat(id: "1", users: [User(id: "1",
                                           number: "some_number",
                                           firstName: "Bob",
                                           middleName: "Biby",
                                           lastName: "Bobin",
-                                          email: nil),
+                                          email: nil,
+                                          image: "3"),
                                      User(id: "3",
                                           number: "other number",
                                           firstName: nil,
                                           middleName: "",
                                           lastName: "Jonson",
-                                          email: "email")],
+                                          email: "email",
+                                          image: "4")],
                     messeges: [Messege(id: "12", text: "Hello boy!", date: Date())])
     
     func fetchAllChatsFromAPI() -> [Chat] {
-        //TODO: прикрутить запрос апи и обработку ошибок+ответа
+        //TODO: прикрутить запрос апи и обработку ошибок+ответа и перенести на нетворкера
         while chats.count < 5 {
             chats.append(chat)
         }
@@ -70,7 +74,8 @@ class ChatDataManager: ChatsProtocol {
                                            firstName: firstName,
                                            middleName: middleName,
                                            lastName: lastName,
-                                           email: email))
+                                           email: email,
+                                           image: ""))
             })
                 
             return contactsResult
@@ -80,6 +85,21 @@ class ChatDataManager: ChatsProtocol {
         }
     }
     
+    //Settings from cash
+    func fetchAllSettingsFromCash() -> [Setting]{
+        //TODO: пока заглушка
+        return [Setting(name: "Чат", image: "ChatSetting"),
+                Setting(name: "Избранные сообщения", image: "FavoriteSetting"),
+                Setting(name: "Уведомления", image: "NotificationSetting"),
+                Setting(name: "Данные и хранилище", image: "DataBaseSetting"),
+                Setting(name: "Помощь", image: "HelpSetting")]
+    }
+    func fetchProfileInfoFromCash() -> Profile {
+        return Profile(id: "",
+                       firstName: "Мое имя",
+                       lastName: "моя фамилия",
+                       number: "+7 777 777 77 77")
+    }
     
     //TODO: сделать мемори кэш сервис
 }

@@ -24,13 +24,14 @@ class AddChatInteractor: AddChatInteractorInputProtocol {
     var DataManager: ChatsProtocol!
     
     func fetchAllContacts() {
-        
+
         CNContactStore().requestAccess(for: .contacts, completionHandler: {(success, error) in
             if success {
                 guard let contacts = self.DataManager.fetchAllContactsFromContactBook() else {
                     fatalError("Ошибка при попытке получить список контактов")
                 }
                 self.presenter.providedContactsFromContactBook(contacts: contacts)
+
             } else {
                 let error = Error(id: "1", errorCode: error.debugDescription, errorDescription: error?.localizedDescription ?? "", urlString: "")
                 self.presenter.serviceError(error: error)

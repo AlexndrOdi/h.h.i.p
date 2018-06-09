@@ -20,13 +20,15 @@ struct Chat: Modaleble {
                                           firstName: "Bob",
                                           middleName: "Boby",
                                           lastName: "Bobiev",
-                                          email: "some_email"),
+                                          email: "some_email",
+                                          image: "1"),
                                      User(id: "2",
                                           number: "other number",
                                           firstName: "Jon",
                                           middleName: "",
                                           lastName: "Jonson",
-                                          email: nil)], messeges: [Messege(id: "2",
+                                          email: nil,
+                                          image: "2")], messeges: [Messege(id: "2",
                                                                                     text: "Hay!",
                                                                                     date: Date())])
         //массив месейджов поболее только надо, штук 7 хотя бы :)

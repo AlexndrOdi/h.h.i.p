@@ -30,6 +30,10 @@ extension Modaleble {
         return jsonString
     }
     
+    var asData: Data? {
+        return try? JSONEncoder().encode(self)
+    }
+    
     //MARK: Functions
     static func from (json: Data?) -> Self? {
         let decoder = JSONDecoder()

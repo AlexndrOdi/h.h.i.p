@@ -9,9 +9,19 @@
 import Foundation
 
 protocol AddChatRouterInputProtocol: class {
-    
+    func navigateToNewContact()
+    func navigateToCreateGroup()
 }
 
 class AddChatRouter: AddChatRouterInputProtocol {
+    
+    func navigateToNewContact() {
+        
+    }
+    
+    func navigateToCreateGroup() {
+        
+    }
+    
     
 }

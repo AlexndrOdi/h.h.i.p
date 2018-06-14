@@ -17,12 +17,14 @@ protocol AddChatViewControllerOutputProtocol: class {
     func displayAllContacts()
     func navigateToNewContact()
     func navigateToCreateGroup()
+    func navigateToChat()
+    func passDataToNextScene(segue: UIStoryboardSegue)
 }
 
 class AddChatViewController: UIViewController, AddChatViewControllerIntputProtocol {
     
     //MARK: Properties
-    @IBOutlet weak var contactsTableView: UITableView!
+    @IBOutlet weak var contactsTableView: UITableView?
     
     var contacts: [User] = []
     
@@ -37,19 +39,20 @@ class AddChatViewController: UIViewController, AddChatViewControllerIntputProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = navigationTitleAddChat
         // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        presenter.passDataToNextScene(segue: segue)
     }
     
     func showContactsFromContactBook(contacts: [User]) {
         self.contacts.append(contentsOf: contacts)
         
         DispatchQueue.main.async {
-            self.contactsTableView.reloadData()
+            self.contactsTableView?.reloadData()
         }
     }
     
@@ -63,63 +66,85 @@ class AddChatViewController: UIViewController, AddChatViewControllerIntputProtoc
     }
 }
 extension AddChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            let footerView = UILabel(frame: CGRect(x: 70, y: 25, width: 100, height: 30))
+            footerView.textAlignment = .center
+            footerView.text = contactBook
+            footerView.backgroundColor = footerColor
+            return footerView
+        }
+        return UIView()
+    }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count + 3
+        if section == 0 {
+            return 2
+        } else {
+            return contacts.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
-        case 0:
-            let cell = contactsTableView.dequeueReusableCell(withIdentifier: NewContactCell.identifier, for: indexPath) as! NewContactCell
-            return cell
-        case 1:
-            let cell = contactsTableView.dequeueReusableCell(withIdentifier: GroupContactCell.identifier, for: indexPath) as! GroupContactCell
-            return cell
-        case 2:
-            let cell = contactsTableView.dequeueReusableCell(withIdentifier: LabelContactBookCell.identifier, for: indexPath) as! LabelContactBookCell
-            return cell
-        default:
-            let cell = contactsTableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as! ContactCell
-            let contact = contacts[indexPath.row - 3]
-            var fullName: String? = ""
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: NewContactCell.identifier, for: indexPath) as? NewContactCell else {
+                    fatalError("The dequeued cell is not an instance of NewContactCell.")
+                }
+                return cell
+            }
+            if indexPath.row == 1 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupContactCell.identifier, for: indexPath) as? GroupContactCell else {
+                    fatalError("The dequeued cell is not an instance of GroupContactCell")
+                }
+                return cell
+            }
+        }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as? ContactCell else {
+                fatalError("The dequeued cell is not an instance of ContactCell")
+        }
+        let contact = contacts[indexPath.row]
+        var fullName: String? = ""
             
-            if let first = contact.firstName {
-                fullName?.append(first + " ")
-            }
-            if let middle = contact.middleName {
-                fullName?.append(middle + " ")
-            }
-            if let last = contact.lastName {
-                fullName?.append(last)
-            }
-            cell.label.text = fullName
+        if let first = contact.firstName {
+            fullName?.append(first + " ")
+        }
+        if let middle = contact.middleName {
+            fullName?.append(middle + " ")
+        }
+        if let last = contact.lastName {
+            fullName?.append(last)
+        }
+        cell.label.text = fullName
     
             //TODO: доделать для аватарки контакта
-            cell.photoView.image = #imageLiteral(resourceName: "empty_contact")
+        cell.photoView.image = #imageLiteral(resourceName: "empty_contact")
             
-            return cell
-        }
+        return cell
     }
-    
-    
 }
 extension AddChatViewController: UITableViewDelegate {
     //TODO: дописать после роутинга на другой экран и т.д.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row {
-        case 0:
-            print("0")
-        case 1:
-            print("1")
-        case 2:
-            print("2")
-        default:
-            print("default")
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0: presenter.navigateToNewContact()
+            case 1: presenter.navigateToCreateGroup()
+            default:
+                fatalError("Undefined row on AddChatView")
+            }
+        } else {
+            presenter.navigateToChat()
         }
-        
         
         tableView.deselectRow(at: indexPath, animated: true)
     }

@@ -10,62 +10,89 @@ import UIKit
 import Alamofire
 import SocketIO
 
+struct TestConnect: Decodable, Modaleble {
+    var text: String
+}
+
 protocol ContactsViewControllerInputProtocol: class {
-    
+    func updateFields(debug: String, event: String)
 }
 
 protocol ContactsViewControllerOutputProtocol: class {
     func fetchAllContacts()
 }
 
-class ContactsViewController: UIViewController, ContactsViewControllerInputProtocol {
+class ContactsViewController: UIViewController, UITextViewDelegate, ContactsViewControllerInputProtocol {
     
     @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var debugField: UITextView!
+    @IBOutlet weak var anyHandlerField: UITextView!
     
     @IBOutlet weak var button: UIButton!
     var presenter: ContactsViewControllerOutputProtocol!
     
     let urlReq = "http://195.133.144.75:80"
     
-    @IBAction func sendData(_ sender: UIButton) {
-            
-//        Alamofire.request(urlReq, method: .get , parameters: ["foo": "bar"], encoding: JSONEncoding.default, headers: nil).validate()
-//            .responseJSON { (response) in
-//                switch response.result {
-//                case .failure(let err):
-//                    print(err.localizedDescription)
-//                    print(err)
-//                case .success:
-//                    print(response)
-//                }
-
-//        let socketConfiguration: SocketIOClientConfiguration = [.log(true),
-//                                                                .secure(false)]
-//
-//        let manager = SocketManager(socketURL: URL(string: baseSocketUrl)!, config: socketConfiguration)
-//        let socket = manager.defaultSocket
-//
-//        socket.connect(timeoutAfter: 15.0) {
-//            print("connected")
-//        }
-//
-//        socket.onAny { (event) in
-//            print(event.description)
-//            print("---------------")
-//            print(event.event)
-//            print("---------------")
-//            print(event.items?.count)
-//            print("---------------")
-//            print(event.items?.first)
-//        }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func updateFields(debug: String, event: String) {
+        debugField.text.append(debug + "\n")
+        anyHandlerField.text.append(event + "\n")
+        debugField.reloadInputViews()
+        anyHandlerField.reloadInputViews()
+        
+        let rangeAny = NSMakeRange(anyHandlerField.text.characters.count - 1, 1)
+        let rangeDebug = NSMakeRange(debugField.text.characters.count - 1, 1)
+        debugField.scrollRangeToVisible(rangeDebug)
+        anyHandlerField.scrollRangeToVisible(rangeAny)
+    }
 
         
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func sendData(_ sender: UIButton) {
+        
+        
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navItem.title = navigationTitleContacts
+        ContactsConfigurer.sharedInstance.configureContactsView(viewController: self)
+        
         
 //        performAllContacts()
     }

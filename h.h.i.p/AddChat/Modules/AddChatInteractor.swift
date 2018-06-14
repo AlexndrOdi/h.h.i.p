@@ -24,20 +24,40 @@ class AddChatInteractor: AddChatInteractorInputProtocol {
     var DataManager: ChatsProtocol!
     
     func fetchAllContacts() {
-
-        CNContactStore().requestAccess(for: .contacts, completionHandler: {(success, error) in
-            if success {
-                guard let contacts = self.DataManager.fetchAllContactsFromContactBook() else {
-                    fatalError("Ошибка при попытке получить список контактов")
-                }
-                self.presenter.providedContactsFromContactBook(contacts: contacts)
-
-            } else {
-                let error = Error(id: "1", errorCode: error.debugDescription, errorDescription: error?.localizedDescription ?? "", urlString: "")
-                self.presenter.serviceError(error: error)
-            }
-        })
         
+        var contacts: [User] = []
+        let (result, auth) = DataManager.fetchAllContactsFromContactBook()
+        
+        if auth == .authorized {
+            contacts = asUsers(contacts: result)
+            self.presenter.providedContactsFromContactBook(contacts: contacts)
+        }
+        if auth == .denied {
+            self.presenter.serviceError(error: Error(id: "1", errorCode: "2", errorDescription: "Contact book auth status = denied", urlString: ""))
+        }
     }
     
+    
+    //Private methods
+    private func asUsers(contacts: [CNContact]) -> [User] {
+        var result: [User] = []
+        for contact in contacts {
+            guard let number = contact.phoneNumbers.first?.value.stringValue else {
+                print("Cannot find number of contact:", contact.description)
+                continue
+            }
+            guard let emailAddr = contact.emailAddresses.first?.value as String? else {
+                print("Faild casting email to String:")
+                continue
+            }
+            result.append(User(id: "",
+                               number: number,
+                               firstName: contact.givenName,
+                               middleName: contact.middleName,
+                               lastName: contact.familyName,
+                               email: emailAddr,
+                               image: "доделать надо"))
+        }
+        return result
+    }
 }

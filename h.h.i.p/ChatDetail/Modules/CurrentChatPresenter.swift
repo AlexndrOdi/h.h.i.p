@@ -22,6 +22,10 @@ class CurrentChatPresenter: CurrentChatPresenterInputProtocol {
         self.interactor.initChat(chat: chat)
     }
     
+    func saveSelectedChatByContact(_ contact: User) {
+        self.interactor.initChat(contact: contact)
+    }
+    
     func providedCurrentChat(chat: Chat) {
         self.view.displayCurrentChat(chat: chat)
     }

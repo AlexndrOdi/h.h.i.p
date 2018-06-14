@@ -19,6 +19,8 @@ class AddChatConfigurer {
         let router = AddChatRouter()
         let data = ChatDataManager()
         
+        router.view = viewController
+        
         viewController.presenter = presenter
         
         presenter.view = viewController

@@ -10,4 +10,13 @@ import Foundation
 
 class ContactsConfigurer {
     
+    static let sharedInstance = ContactsConfigurer()
+    
+    func configureContactsView(viewController: ContactsViewController) {
+        
+        let socket = SocketTest()
+        socket.view = viewController
+        socket.connectEstb()
+    }
+    
 }

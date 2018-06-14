@@ -39,7 +39,7 @@ class ChatsViewController: UIViewController, UINavigationControllerDelegate, Cha
     //TODO: удалить после теста
     //---------------------------
     var currentCountChats = 1
-    var totalCountChats = 15
+    var totalCountChats = 5
     //---------------------------
     var chats: [Chat] = []
     
@@ -83,17 +83,18 @@ class ChatsViewController: UIViewController, UINavigationControllerDelegate, Cha
     }
     //Activity indicator view
     func showWaitingView() {
-
+ 
         let alert = UIAlertController(title: "Waiting..", message: nil, preferredStyle: .alert)
         
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         
+        loadingIndicator.stopAnimating()
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.startAnimating()
         
         alert.view.addSubview(loadingIndicator)
         
-        self.navigationController?.present(alert, animated: true, completion: nil)
+//        self.navigationController?.present(alert, animated: true, completion: nil)
         
     }
     func hideWaitingView() {
@@ -119,7 +120,9 @@ extension ChatsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //TODO: добавить лоадинг селл, если чатов в кэше нет больше
         if indexPath.row < chats.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.identifier, for: indexPath) as! ChatCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.identifier, for: indexPath) as? ChatCell else {
+                fatalError("The dequeued cell is not an instance of ChatCell")
+            }
         
             //TODO: после добавления кэша сделать рефаторинг и реорганизовать
             let chat = self.chats[indexPath.row]
@@ -131,7 +134,9 @@ extension ChatsViewController: UITableViewDataSource {
             cell.textLastMessageField.text = chat.messeges.last?.text
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ChatLoadingCell.identifier, for: indexPath) as! ChatLoadingCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatLoadingCell.identifier, for: indexPath) as? ChatLoadingCell else {
+                fatalError("The dequeued cell is not an instance of ChatLoadingCell")
+            }
             currentCountChats += 1
             performAllChats()
             return cell

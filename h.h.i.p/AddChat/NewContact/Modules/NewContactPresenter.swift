@@ -6,4 +6,25 @@
 //  Copyright © 2018 Alex Odintsov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol NewContactPresenterInputProtocol: NewContactViewControllerOutputProtocol, NewContactInteractorOutputProtocol {
+    
+}
+
+class NewContactPresenter: NewContactPresenterInputProtocol {
+    
+    weak var view: NewContactViewControllerInputProtocol!
+    var interactor: NewContactInteractorInputProtocol!
+    var router: NewContactRouterInputProtocol!
+    
+    
+    func pressDoneButton() {
+        router.navigateToAddChatView()
+        interactor.saveContact()
+    }
+    
+    func passDataToNextScene(segue: UIStoryboardSegue) {
+        router.passDataToNextScene(segue: segue)
+    }
+}

@@ -39,6 +39,13 @@ class AddChatPresenter: AddChatPresenterInputProtocol {
         router.navigateToCreateGroup()
     }
     
-
+    func navigateToChat() {
+        router.navigateToChat()
+    }
+    
+    //Pass data
+    func passDataToNextScene(segue: UIStoryboardSegue) {
+        router.passDataToNextScene(segue: segue)
+    }
     
 }

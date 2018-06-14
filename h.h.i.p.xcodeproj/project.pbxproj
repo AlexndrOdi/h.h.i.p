@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2237A450A8769684ED784AA9 /* Pods_h_h_i_p.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D418269AD1C179DB2EC7D7BD /* Pods_h_h_i_p.framework */; };
+		9506F2E220CD5BD900B90704 /* TestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506F2E120CD5BD900B90704 /* TestConnection.swift */; };
 		950AC56220C416E70053448F /* NewContactPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950AC56120C416E70053448F /* NewContactPresenter.swift */; };
 		950AC56420C416F80053448F /* NewContactInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950AC56320C416F80053448F /* NewContactInteractor.swift */; };
 		950AC56620C417130053448F /* NewContactRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950AC56520C417130053448F /* NewContactRouter.swift */; };
@@ -25,6 +26,8 @@
 		950AC5A720C86D840053448F /* LabelContactBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950AC5A620C86D840053448F /* LabelContactBookCell.swift */; };
 		950AC5A920C87B190053448F /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950AC5A820C87B190053448F /* NewGroupViewController.swift */; };
 		950AC5AC20C87DAC0053448F /* CreateContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950AC5AB20C87DAC0053448F /* CreateContactCell.swift */; };
+		953BA5B020CF333F009D4ADF /* SettingDetailConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953BA5AF20CF333F009D4ADF /* SettingDetailConfigurer.swift */; };
+		956F1ECD20CFF7E100C872D7 /* CreateGroupContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F1ECC20CFF7E100C872D7 /* CreateGroupContactCell.swift */; };
 		95ACCEAB20CB0A5300FC8D01 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACCEAA20CB0A5300FC8D01 /* Settings.swift */; };
 		95ACCEAD20CB144600FC8D01 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACCEAC20CB144600FC8D01 /* Profile.swift */; };
 		95ACCEB220CBEF8000FC8D01 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACCEB120CBEF8000FC8D01 /* ProfileViewController.swift */; };
@@ -58,6 +61,17 @@
 		95B2140120C2914A00894095 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B2140020C2914A00894095 /* SocketService.swift */; };
 		95B2140420C3F1AA00894095 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B2140320C3F1AA00894095 /* ProfileCell.swift */; };
 		95B2140820C3F4E600894095 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B2140720C3F4E600894095 /* SettingsCell.swift */; };
+		95DE762A20D0121A00955521 /* NewGroupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE762920D0121A00955521 /* NewGroupPresenter.swift */; };
+		95DE762C20D012DE00955521 /* NewGroupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE762B20D012DE00955521 /* NewGroupInteractor.swift */; };
+		95DE762E20D0131500955521 /* NewGroupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE762D20D0131500955521 /* NewGroupRouter.swift */; };
+		95DE763020D0271F00955521 /* NewGroupConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE762F20D0271F00955521 /* NewGroupConfigurer.swift */; };
+		95DE763420D0490900955521 /* FinalStepNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE763320D0490900955521 /* FinalStepNewGroupViewController.swift */; };
+		95DE763620D04B5000955521 /* FinalStepNewGroupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE763520D04B5000955521 /* FinalStepNewGroupPresenter.swift */; };
+		95DE763820D04BBD00955521 /* FinalStepNewGroupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE763720D04BBD00955521 /* FinalStepNewGroupRouter.swift */; };
+		95DE763A20D04E9300955521 /* FinalStepNewGroupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE763920D04E9300955521 /* FinalStepNewGroupInteractor.swift */; };
+		95DE763C20D04FD300955521 /* FinalStepNewGroupConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE763B20D04FD300955521 /* FinalStepNewGroupConfigurer.swift */; };
+		95DE763E20D0539900955521 /* FinalStepContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE763D20D0539900955521 /* FinalStepContactCell.swift */; };
+		95DE764020D0540200955521 /* FinalGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DE763F20D0540200955521 /* FinalGroupCell.swift */; };
 		95EF728F20B899C90019B275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EF728E20B899C90019B275 /* AppDelegate.swift */; };
 		95EF729420B899C90019B275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EF729220B899C90019B275 /* Main.storyboard */; };
 		95EF729720B899C90019B275 /* h_h_i_p.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95EF729520B899C90019B275 /* h_h_i_p.xcdatamodeld */; };
@@ -104,6 +118,7 @@
 /* Begin PBXFileReference section */
 		0D70E70D83643AAAA1F5591C /* Pods-h.h.i.pTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-h.h.i.pTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-h.h.i.pTests/Pods-h.h.i.pTests.release.xcconfig"; sourceTree = "<group>"; };
 		36B6169CF67D5790B805376B /* Pods-h.h.i.p.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-h.h.i.p.debug.xcconfig"; path = "Pods/Target Support Files/Pods-h.h.i.p/Pods-h.h.i.p.debug.xcconfig"; sourceTree = "<group>"; };
+		9506F2E120CD5BD900B90704 /* TestConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConnection.swift; sourceTree = "<group>"; };
 		950AC56120C416E70053448F /* NewContactPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactPresenter.swift; sourceTree = "<group>"; };
 		950AC56320C416F80053448F /* NewContactInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactInteractor.swift; sourceTree = "<group>"; };
 		950AC56520C417130053448F /* NewContactRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactRouter.swift; sourceTree = "<group>"; };
@@ -121,6 +136,8 @@
 		950AC5A620C86D840053448F /* LabelContactBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelContactBookCell.swift; sourceTree = "<group>"; };
 		950AC5A820C87B190053448F /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		950AC5AB20C87DAC0053448F /* CreateContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactCell.swift; sourceTree = "<group>"; };
+		953BA5AF20CF333F009D4ADF /* SettingDetailConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDetailConfigurer.swift; sourceTree = "<group>"; };
+		956F1ECC20CFF7E100C872D7 /* CreateGroupContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupContactCell.swift; sourceTree = "<group>"; };
 		95ACCEAA20CB0A5300FC8D01 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		95ACCEAC20CB144600FC8D01 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		95ACCEB120CBEF8000FC8D01 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +171,17 @@
 		95B2140020C2914A00894095 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		95B2140320C3F1AA00894095 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		95B2140720C3F4E600894095 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		95DE762920D0121A00955521 /* NewGroupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupPresenter.swift; sourceTree = "<group>"; };
+		95DE762B20D012DE00955521 /* NewGroupInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupInteractor.swift; sourceTree = "<group>"; };
+		95DE762D20D0131500955521 /* NewGroupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupRouter.swift; sourceTree = "<group>"; };
+		95DE762F20D0271F00955521 /* NewGroupConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupConfigurer.swift; sourceTree = "<group>"; };
+		95DE763320D0490900955521 /* FinalStepNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepNewGroupViewController.swift; sourceTree = "<group>"; };
+		95DE763520D04B5000955521 /* FinalStepNewGroupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepNewGroupPresenter.swift; sourceTree = "<group>"; };
+		95DE763720D04BBD00955521 /* FinalStepNewGroupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepNewGroupRouter.swift; sourceTree = "<group>"; };
+		95DE763920D04E9300955521 /* FinalStepNewGroupInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepNewGroupInteractor.swift; sourceTree = "<group>"; };
+		95DE763B20D04FD300955521 /* FinalStepNewGroupConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepNewGroupConfigurer.swift; sourceTree = "<group>"; };
+		95DE763D20D0539900955521 /* FinalStepContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepContactCell.swift; sourceTree = "<group>"; };
+		95DE763F20D0540200955521 /* FinalGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalGroupCell.swift; sourceTree = "<group>"; };
 		95EF728B20B899C90019B275 /* h.h.i.p.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = h.h.i.p.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EF728E20B899C90019B275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95EF729320B899C90019B275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -238,17 +266,19 @@
 		950AC55F20C416090053448F /* CreateGroup */ = {
 			isa = PBXGroup;
 			children = (
-				950AC56020C416170053448F /* Module */,
+				956F1EC920CFF5E700C872D7 /* Cells */,
+				950AC56020C416170053448F /* Modules */,
 			);
 			path = CreateGroup;
 			sourceTree = "<group>";
 		};
-		950AC56020C416170053448F /* Module */ = {
+		950AC56020C416170053448F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				950AC5A820C87B190053448F /* NewGroupViewController.swift */,
+				95DE763120D048CB00955521 /* step1 */,
+				95DE763220D048DE00955521 /* step2 */,
 			);
-			path = Module;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		950AC56920C419E10053448F /* Contacts */ = {
@@ -268,6 +298,7 @@
 				950AC57220C41DDD0053448F /* ContactsInteractor.swift */,
 				950AC57420C41E1A0053448F /* ContactsRouter.swift */,
 				950AC57620C41E560053448F /* ContactsConfigurer.swift */,
+				9506F2E120CD5BD900B90704 /* TestConnection.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -284,6 +315,16 @@
 			isa = PBXGroup;
 			children = (
 				950AC5AB20C87DAC0053448F /* CreateContactCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		956F1EC920CFF5E700C872D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				956F1ECC20CFF7E100C872D7 /* CreateGroupContactCell.swift */,
+				95DE763D20D0539900955521 /* FinalStepContactCell.swift */,
+				95DE763F20D0540200955521 /* FinalGroupCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -317,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				95ACCEB420CBEFA600FC8D01 /* SettingDetailViewController.swift */,
+				953BA5AF20CF333F009D4ADF /* SettingDetailConfigurer.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -457,6 +499,30 @@
 				95B2140720C3F4E600894095 /* SettingsCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		95DE763120D048CB00955521 /* step1 */ = {
+			isa = PBXGroup;
+			children = (
+				950AC5A820C87B190053448F /* NewGroupViewController.swift */,
+				95DE762920D0121A00955521 /* NewGroupPresenter.swift */,
+				95DE762B20D012DE00955521 /* NewGroupInteractor.swift */,
+				95DE762D20D0131500955521 /* NewGroupRouter.swift */,
+				95DE762F20D0271F00955521 /* NewGroupConfigurer.swift */,
+			);
+			path = step1;
+			sourceTree = "<group>";
+		};
+		95DE763220D048DE00955521 /* step2 */ = {
+			isa = PBXGroup;
+			children = (
+				95DE763320D0490900955521 /* FinalStepNewGroupViewController.swift */,
+				95DE763520D04B5000955521 /* FinalStepNewGroupPresenter.swift */,
+				95DE763920D04E9300955521 /* FinalStepNewGroupInteractor.swift */,
+				95DE763720D04BBD00955521 /* FinalStepNewGroupRouter.swift */,
+				95DE763B20D04FD300955521 /* FinalStepNewGroupConfigurer.swift */,
+			);
+			path = step2;
 			sourceTree = "<group>";
 		};
 		95EF728220B899C90019B275 = {
@@ -818,6 +884,7 @@
 				95B213F420C0787C00894095 /* NetworkService.swift in Sources */,
 				95EF72EE20BB67F50019B275 /* CurrentChatConfigurer.swift in Sources */,
 				95EF72C020B8A09B0019B275 /* CurrentChatPresenter.swift in Sources */,
+				95DE763C20D04FD300955521 /* FinalStepNewGroupConfigurer.swift in Sources */,
 				95EF72B420B89EDA0019B275 /* CurrentChatViewController.swift in Sources */,
 				95B2140120C2914A00894095 /* SocketService.swift in Sources */,
 				95B213F120C040E300894095 /* MessageService.swift in Sources */,
@@ -825,8 +892,10 @@
 				95ACCEB520CBEFA600FC8D01 /* SettingDetailViewController.swift in Sources */,
 				95EF729720B899C90019B275 /* h_h_i_p.xcdatamodeld in Sources */,
 				95EF72D220B8ADAB0019B275 /* Errors.swift in Sources */,
+				95DE762C20D012DE00955521 /* NewGroupInteractor.swift in Sources */,
 				95EF72C820B8A2600019B275 /* ChatsRouter.swift in Sources */,
 				95B2140820C3F4E600894095 /* SettingsCell.swift in Sources */,
+				95DE763020D0271F00955521 /* NewGroupConfigurer.swift in Sources */,
 				95EF72BE20B8A0840019B275 /* ChatsPresenter.swift in Sources */,
 				95ACCEBC20CBF6C000FC8D01 /* NotificationSettingCell.swift in Sources */,
 				950AC57920C4793B0053448F /* NewContactViewController.swift in Sources */,
@@ -836,27 +905,34 @@
 				95EF72E920BAA57F0019B275 /* Animation.swift in Sources */,
 				95EF72D720B8DC970019B275 /* ChatsConfigurer.swift in Sources */,
 				95EF72CE20B8A5720019B275 /* Group.swift in Sources */,
+				95DE764020D0540200955521 /* FinalGroupCell.swift in Sources */,
 				95EF72E120BA0C730019B275 /* ChatCell.swift in Sources */,
 				95B2140420C3F1AA00894095 /* ProfileCell.swift in Sources */,
 				95B213CA20BD555600894095 /* AddChatInteractor.swift in Sources */,
 				95B213D420BE87D500894095 /* AddChatViewController.swift in Sources */,
+				95DE763E20D0539900955521 /* FinalStepContactCell.swift in Sources */,
 				95B213FC20C191E700894095 /* AlamofireManager.swift in Sources */,
 				950AC57720C41E560053448F /* ContactsConfigurer.swift in Sources */,
 				95EF72B220B89E960019B275 /* ChatsViewController.swift in Sources */,
 				95EF72BA20B8A0370019B275 /* ChatsInteractor.swift in Sources */,
+				95DE762A20D0121A00955521 /* NewGroupPresenter.swift in Sources */,
 				95EF72BC20B8A04A0019B275 /* CurrentChatInteractor.swift in Sources */,
 				950AC56F20C41BA90053448F /* ContactsViewController.swift in Sources */,
 				95ACCEB220CBEF8000FC8D01 /* ProfileViewController.swift in Sources */,
 				95B213C820BD554300894095 /* AddChatPresenter.swift in Sources */,
+				953BA5B020CF333F009D4ADF /* SettingDetailConfigurer.swift in Sources */,
+				9506F2E220CD5BD900B90704 /* TestConnection.swift in Sources */,
 				95EF72D920B966BC0019B275 /* Modalable.swift in Sources */,
 				95B213F720C1483F00894095 /* HttpRequestProtocol.swift in Sources */,
 				95B213D920BEE1B600894095 /* TabBarController.swift in Sources */,
 				950AC57B20C47B940053448F /* UserProfileController.swift in Sources */,
 				950AC5A520C86B240053448F /* NewContactCell.swift in Sources */,
 				95B213D620BE89AF00894095 /* ContactCell.swift in Sources */,
+				95DE762E20D0131500955521 /* NewGroupRouter.swift in Sources */,
 				95EF72EC20BB5AC60019B275 /* MessageTableCell.swift in Sources */,
 				95EF728F20B899C90019B275 /* AppDelegate.swift in Sources */,
 				950AC56D20C41A540053448F /* InviteCell.swift in Sources */,
+				95DE763420D0490900955521 /* FinalStepNewGroupViewController.swift in Sources */,
 				950AC56220C416E70053448F /* NewContactPresenter.swift in Sources */,
 				95B213E320BEE7D800894095 /* SettingsRouter.swift in Sources */,
 				95EF72CA20B8A2710019B275 /* CurrentChatRouter.swift in Sources */,
@@ -874,17 +950,21 @@
 				95ACCEBA20CBF68800FC8D01 /* FavoriteMessageCell.swift in Sources */,
 				95ACCEAB20CB0A5300FC8D01 /* Settings.swift in Sources */,
 				950AC57520C41E1A0053448F /* ContactsRouter.swift in Sources */,
+				95DE763820D04BBD00955521 /* FinalStepNewGroupRouter.swift in Sources */,
 				95EF72E320BA0C8D0019B275 /* ChatLoadingCell.swift in Sources */,
 				950AC56820C417290053448F /* NewContactConfigurer.swift in Sources */,
 				950AC56420C416F80053448F /* NewContactInteractor.swift in Sources */,
+				95DE763620D04B5000955521 /* FinalStepNewGroupPresenter.swift in Sources */,
 				95ACCEB820CBF65E00FC8D01 /* ChatSettingCell.swift in Sources */,
 				950AC5A320C86B090053448F /* GroupContactCell.swift in Sources */,
+				95DE763A20D04E9300955521 /* FinalStepNewGroupInteractor.swift in Sources */,
 				95EF72D020B8A5810019B275 /* Messege.swift in Sources */,
 				95B213DF20BEE7B500894095 /* SettingsPresenter.swift in Sources */,
 				950AC5A920C87B190053448F /* NewGroupViewController.swift in Sources */,
 				95B213ED20BF4ECC00894095 /* BaseViewCell.swift in Sources */,
 				950AC5AC20C87DAC0053448F /* CreateContactCell.swift in Sources */,
 				950AC57320C41DDD0053448F /* ContactsInteractor.swift in Sources */,
+				956F1ECD20CFF7E100C872D7 /* CreateGroupContactCell.swift in Sources */,
 				95B213E120BEE7C600894095 /* SettingsInteractor.swift in Sources */,
 				95B213F920C14AF800894095 /* AlamofireRequest.swift in Sources */,
 			);
@@ -979,7 +1059,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1033,7 +1113,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1050,7 +1130,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M48S3Y65RF;
 				INFOPLIST_FILE = h.h.i.p/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1070,7 +1150,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M48S3Y65RF;
 				INFOPLIST_FILE = h.h.i.p/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,6 +10,7 @@ import UIKit
 
 protocol CurrentChatViewControllerOutputProtocol: class {
     func saveSelectedChat(chat: Chat)
+    func saveSelectedChatByContact(_ contact: User)
     func sendMessage(message: Messege)
 }
 
@@ -116,6 +117,7 @@ extension CurrentChatViewController: UICollectionViewDataSource {
             cell.message.text = "Сообщений еще не было"
             return cell //возвращать буду какой-то дефолтный селл
         }
+        //TODO: переделать после добавления фото
         if let imageAddr = chat.users.first?.image {
             cell.photo.image = UIImage(named: imageAddr)
         }

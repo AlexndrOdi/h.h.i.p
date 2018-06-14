@@ -12,9 +12,11 @@ import Contacts
 protocol ChatsProtocol {
     //TODO: протокольное общение от дата манагера к интерактору
     func fetchAllChatsFromAPI() -> [Chat]
-    func fetchAllContactsFromContactBook() -> [User]?
+    func fetchAllContactsFromContactBook() -> ([CNContact], CNAuthorizationStatus)
     func fetchAllSettingsFromCash() -> [Setting]
     func fetchProfileInfoFromCash() -> Profile
+    func fetchChatByContactFromCash(_ contact: User) -> Chat
+    func saveContactInContactBook(_ contact: User) -> CNAuthorizationStatus
     
 }
 
@@ -46,43 +48,54 @@ class ChatDataManager: ChatsProtocol {
         return chats
     }
     
-    //Contacts from contact book
-    func fetchAllContactsFromContactBook() -> [User]? {
+    //Contact book
+    func fetchAllContactsFromContactBook() -> ([CNContact], CNAuthorizationStatus) {
         //TODO: реализовать метод подгрузки контактов из контакной книги
-        var contactsResult: [User] = []
-        do {
-            let keys = [
-                CNContactGivenNameKey,
-                CNContactMiddleNameKey,
-                CNContactFamilyNameKey,
-                CNContactPhoneNumbersKey,
-                CNContactEmailAddressesKey
-                ] as [CNKeyDescriptor]
-            let request = CNContactFetchRequest(keysToFetch: keys)
-            try CNContactStore().enumerateContacts(with: request, usingBlock: {(contact, stopingPointer) in
-                let firstName = contact.givenName
-                let lastName = contact.familyName
-                let middleName = contact.middleName
-                guard let number = contact.phoneNumbers.first?.value.stringValue else {
-                    print("пустой номер телефона у \(firstName)")
-                    return
-                }
-                let email = contact.emailAddresses.first?.value as String?
-                
-                contactsResult.append(User(id: "111",
-                                           number: number,
-                                           firstName: firstName,
-                                           middleName: middleName,
-                                           lastName: lastName,
-                                           email: email,
-                                           image: ""))
-            })
-                
-            return contactsResult
-        } catch {
-            print(error.localizedDescription)
-            return nil
+        
+        var contacts: [CNContact] = []
+        var auth = CNContactStore.authorizationStatus(for: .contacts)
+        
+        if auth == .denied {
+            return ([], auth)
         }
+        if auth == .notDetermined {
+            CNContactStore().requestAccess(for: .contacts) { (success, error) in
+                if success {
+                    contacts = self.fetchContactsFromCB()
+                } else {
+                    auth = CNContactStore.authorizationStatus(for: .contacts)
+                }
+            }
+            return (contacts, auth)
+        }
+        if auth == .authorized {
+            return (fetchContactsFromCB(), auth)
+        }
+        print("Auth status of contact book: \(auth)")
+        return (contacts, auth)
+    }
+    func saveContactInContactBook(_ contact: User) -> CNAuthorizationStatus {
+        var auth = CNContactStore.authorizationStatus(for: .contacts)
+        
+        if auth == .denied {
+            return auth
+        }
+        
+        if auth == .notDetermined {
+            CNContactStore().requestAccess(for: .contacts) { (success, error) in
+                if !success {
+                    auth = CNContactStore.authorizationStatus(for: .contacts)
+                }
+            }
+            
+            return auth
+        }
+        
+        if auth == .authorized {
+            saveContact(contact)
+        }
+        
+        return auth
     }
     
     //Settings from cash
@@ -102,4 +115,76 @@ class ChatDataManager: ChatsProtocol {
     }
     
     //TODO: сделать мемори кэш сервис
+    
+    //MARK: private func-s
+    private func fetchContactsFromCB() -> [CNContact] {
+        var contactsResult: [CNContact] = []
+        
+        do {
+            let keys = [CNContactGivenNameKey,
+                        CNContactMiddleNameKey,
+                        CNContactFamilyNameKey,
+                        CNContactPhoneNumbersKey,
+                        CNContactEmailAddressesKey,
+                        CNContactImageDataKey] as [CNKeyDescriptor]
+            let request = CNContactFetchRequest(keysToFetch: keys)
+            try CNContactStore().enumerateContacts(with: request, usingBlock: { (contact, stopingPointer) in
+                contactsResult.append(contact)
+            })
+            return contactsResult
+        } catch (let err){
+            print(err.localizedDescription)
+            return []
+        }
+    }
+    private func saveContact(_ contact: User) {
+        
+        let contactCN = CNMutableContact()
+        
+        if let firstName = contact.firstName {
+            contactCN.givenName = firstName
+        }
+        if let middleName = contact.middleName {
+            contactCN.middleName = middleName
+        }
+        if let lastName = contact.lastName {
+            contactCN.familyName = lastName
+        }
+        //TODO: сделать для емейла
+//        if let email = contact.email {
+//            let mail = CNLabeledValue(label: CNLabelEmailiCloud, value:  )
+//            contactCN.emailAddresses.append(mail)
+//        }
+        let phoneNumber = contact.number
+        let number = CNLabeledValue(label: CNLabelPhoneNumberMain, value: CNPhoneNumber(stringValue: phoneNumber))
+            contactCN.phoneNumbers = [number]
+        
+        //TODO: доделать для аватарок
+//        if let image = contact.image
+        
+        let request = CNSaveRequest()
+        request.add(contactCN, toContainerWithIdentifier: nil)
+        
+        do {
+            try CNContactStore().execute(request)
+        } catch let err{
+            print("Catched some error fron save contact in contact book. ", err)
+        }
+    }
+    //Find chat by contact from cash
+    func fetchChatByContactFromCash(_ contact: User) -> Chat {
+
+        for chat in self.chats {
+            if chat.users.first(where: { $0 == contact }) != nil {
+                return chat
+            } else {
+                break
+            }
+        }
+        //TODO: продумать логику для нового чата
+        return Chat(id: "1111",
+                    users: [contact], messeges: [Messege(id: "144",
+                                                         text: "new chat",
+                                                         date: Date())])
+    }
 }

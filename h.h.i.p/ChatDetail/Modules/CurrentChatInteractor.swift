@@ -14,6 +14,7 @@ protocol CurrentChatInteractorOutputProtocol: class {
 
 protocol CurrentChatInteractorInputProtocol: class {
     func initChat(chat: Chat)
+    func initChat(contact: User)
     func sendMessage(message: Messege)
 }
 
@@ -27,6 +28,11 @@ class CurrentChatInteractor: CurrentChatInteractorInputProtocol {
     
     func initChat(chat: Chat) {
         self.chat = chat
+        presenter.providedCurrentChat(chat: chat)
+    }
+    
+    func initChat(contact: User) {
+        let chat = DataManager.fetchChatByContactFromCash(contact)
         presenter.providedCurrentChat(chat: chat)
     }
     

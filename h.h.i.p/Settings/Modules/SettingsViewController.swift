@@ -62,12 +62,31 @@ class SettingsViewController: UIViewController, SettingsViewControllerInputProto
 }
 
 extension SettingsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            let footerView = UIView()
+            footerView.backgroundColor = footerColor
+            return footerView
+        } else {
+            return UIView()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings.count + 1
+        if section == 1 {
+            return settings.count
+        }
+        return 1
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             return 80.0
         } else {
             return 60.0
@@ -76,8 +95,10 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-            let profileCell = tableView.dequeueReusableCell(withIdentifier: ProfileCell.identifier, for: indexPath) as! ProfileCell
+        if indexPath.section == 0 {
+            guard let profileCell = tableView.dequeueReusableCell(withIdentifier: ProfileCell.identifier, for: indexPath) as? ProfileCell else {
+                fatalError("The dequeued cell is not an instance of ProfileCell")
+            }
 //            profileCell.profilePhoto =
 //            profileCell.profileName =
 //            profileCell.profileNumber =
@@ -86,10 +107,12 @@ extension SettingsViewController: UITableViewDataSource {
             return profileCell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.identifier, for: indexPath) as! SettingsCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.identifier, for: indexPath) as? SettingsCell else {
+            fatalError("The dequeued cell is not an instance of SettingsCell")
+        }
         
-        cell.settingImage.image = UIImage(named: settings[indexPath.row - 1].image)
-        cell.settingName.text = settings[indexPath.row - 1].name
+        cell.settingImage.image = UIImage(named: settings[indexPath.row].image)
+        cell.settingName.text = settings[indexPath.row].name
         
         return cell
     }

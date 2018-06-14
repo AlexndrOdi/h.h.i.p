@@ -10,7 +10,7 @@ import UIKit
 
 //Socket and HTTP
 let baseRESTUrl = ""
-let baseSocketUrl = "http://195.133.144.75:80"
+let baseSocketUrl = "http://195.133.144.75:80/"
 
 let errorTitle = "Problem with chats :("
 
@@ -30,3 +30,18 @@ let grayColorOfCellBackraound = UIColor(red: 208/255, green: 210/255, blue: 212/
 let navigationTitleChats = "Чаты"
 let navigationTitleContacts = "Контакты"
 let navigationTitleSettings = "Настройки"
+let navigationTitleAddChat = "Создать чат"
+let navigationTitleNewContact = "Новый контакт"
+let navigationTitleNewGroup = "Новая группа"
+
+//Footer view
+let footerColor = UIColor(red: 245/255, green: 245/255, blue: 239/255, alpha: 1)
+let footerSelectedContacts = "Контакты новой группы"//for selected contacts in new group
+
+//Create contact fields
+let name = "Имя"
+let family = "Фамилия"
+let phoneNumber = "Номер телефона"
+let email = "email"
+let company = "Компания"
+let vacation = "Должность"

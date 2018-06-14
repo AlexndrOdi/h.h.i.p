@@ -16,6 +16,7 @@ class CurrentChatConfigurer {
         let presenter = CurrentChatPresenter()
         let interactor = CurrentChatInteractor()
         let router = CurrentChatRouter()
+        let dataManager = ChatDataManager()
         
         viewController.presenter = presenter
         
@@ -24,6 +25,6 @@ class CurrentChatConfigurer {
         presenter.router = router
         
         interactor.presenter = presenter
-        
+        interactor.DataManager = dataManager
     }
 }
